@@ -1,11 +1,11 @@
 - file: about
 - part: Probability
   chapters:
-  - file: notebooks/Probability_Basics.ipynb
+  - file: Probability_Basics.ipynb
     title: Probability Basics I
-  - file: notebooks/Probability_Basics_II.ipynb
-  - file: notebooks/Probability_Basics_III.ipynb
-  - file: notebooks/Common_Probability_Distributions_Discrete.ipynb
+  - file: Probability_Basics_II.ipynb
+  - file: Probability_Basics_III.ipynb
+  - file: Common_Probability_Distributions_Discrete.ipynb
 - part: Models
   chapters:
-  - file: notebooks/Classification_Basics.ipynb
+  - file: Classification_Basics.ipynb
