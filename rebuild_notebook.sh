@@ -11,12 +11,15 @@ cp _toc.yml learningtods/
 cp requirements.txt learningtods/
 cp _config.yml learningtods/
 
+rm -r learningtods/_build
 jupyter-book build learningtods
 
 git rm -r docs
 git rm -r jupyter_execute
+git rm -r .doctrees
 git commit -m "remove stale webpages"
 
+cp -r learningtods/_build/.doctrees .
 cp -r learningtods/_build/html docs
 cp -r learningtods/_build/jupyter_execute .
 git add html

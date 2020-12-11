@@ -1,0 +1,693 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Probability Basics &#8212; LearningToDS</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Probability Basics II" href="Probability_Basics_II.html" />
+    <link rel="prev" title="LearningToDS" href="../about.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">LearningToDS</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   LearningToDS
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Probability
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Probability Basics I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Probability_Basics_II.html">
+   Probability Basics II
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/Probability_Basics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/distilleddata/LearningToDS/master?urlpath=tree/notebooks/Probability_Basics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-boring-mathematical-definitions">
+   Some boring mathematical definitions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#experiment-probability">
+     Experiment (probability)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#some-notation">
+     Some Notation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#axioms-of-probability">
+     Axioms of Probability
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#useful-properties-of-probability-derived-from-axioms">
+   Useful Properties of Probability (Derived from Axioms)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-complement-rule">
+     The Complement Rule
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#proof">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numeric-bound">
+     Numeric Bound
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#probability-of-empty-set">
+     Probability of Empty Set
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#monotonicity">
+     Monotonicity
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rule-of-addition">
+     Rule of Addition
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-useful-definitions">
+   Some Useful Definitions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#independence">
+     Independence
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mutually-exclusive">
+     Mutually Exclusive
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conditional-probability">
+     Conditional Probability
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bayes-theorem">
+     Bayes Theorem
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practical-probability-mathematics">
+   Practical Probability Mathematics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#permutations">
+     Permutations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#definition">
+       Definition
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dealing-with-repeated-elements">
+       Dealing With Repeated Elements
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combination">
+     Combination
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sums">
+     Sums
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#arithmetic-sum">
+       Arithmetic Sum
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geometric-sum">
+     Geometric Sum
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#finite-case">
+       Finite Case
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id7">
+         Proof
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#infinite-case">
+       Infinite Case
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id8">
+         Proof
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p>Author: <a class="reference external" href="https://github.com/DistilledData">DistilledData</a></p>
+<p>\tableofcontents
+\pagebreak</p>
+<div class="section" id="probability-basics">
+<h1>Probability Basics<a class="headerlink" href="#probability-basics" title="Permalink to this headline">¶</a></h1>
+<p>This notebook is meant to serve as a study guide for the highlights of probability theory that is used in data science. The more mathematically rigorous parts of this notebook require an appreciation of set theory.</p>
+<div class="section" id="some-boring-mathematical-definitions">
+<h2>Some boring mathematical definitions<a class="headerlink" href="#some-boring-mathematical-definitions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="experiment-probability">
+<h3>Experiment (probability)<a class="headerlink" href="#experiment-probability" title="Permalink to this headline">¶</a></h3>
+<p><strong>Outcome</strong>: a possible result of an experiment (e.g. flipping a coin may result in H or T) <br>
+<strong>Experiment</strong>: A procedure with a fixed set of possible outcomes that may be repeated indefinitely. An experiment has three parts: <br></p>
+<ol class="simple">
+<li><p>A <strong>Sample Space</strong> (<span class="math notranslate nohighlight">\(S\)</span> or <span class="math notranslate nohighlight">\(\Omega\)</span>): set of all possible outcomes</p></li>
+<li><p>A set of <strong>events</strong> (<span class="math notranslate nohighlight">\(\cal{F}\)</span>) (an <strong>event</strong> is a set containing zero or more outcomes)</p></li>
+<li><p>Assignment of probabilites to the events (i.e. a function <span class="math notranslate nohighlight">\(P\)</span> mapping events to probabilities. Furthermore, we require that as the number times of an experiment tends towards infinity, the frequency of the event <span class="math notranslate nohighlight">\(\cal{F}\)</span> approaches <span class="math notranslate nohighlight">\(P(\cal{F})\)</span></p></li>
+</ol>
+<p><strong>Probability</strong>: A function <span class="math notranslate nohighlight">\(P\)</span> that maps each event in <span class="math notranslate nohighlight">\(\cal{F}\)</span> to a real number between 0 and 1, inclusive</p>
+</div>
+<div class="section" id="some-notation">
+<h3>Some Notation<a class="headerlink" href="#some-notation" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Given an event <span class="math notranslate nohighlight">\(A\in\cal{F}\)</span>, the complement of <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(A^c\)</span>, is all outcomes that are not in <span class="math notranslate nohighlight">\(A\)</span> (i.e. <span class="math notranslate nohighlight">\(\Omega\backslash A\)</span>, or all outcomes <span class="math notranslate nohighlight">\(B\in\cal{\Omega}\)</span> such that <span class="math notranslate nohighlight">\(B\notin A\)</span>)</p></li>
+<li><p>Given two events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(A\cap B\)</span> is the set of outcomes that are in both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> (i.e. <span class="math notranslate nohighlight">\(\forall\omega\in A\cap B\)</span>, <span class="math notranslate nohighlight">\(\omega\in A\)</span> and <span class="math notranslate nohighlight">\(\omega\in B\)</span></p></li>
+<li><p>Given two events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(A\cup B\)</span> is the set of outcomes that are in either <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span> (i.e. <span class="math notranslate nohighlight">\(\forall\omega\in A\cup B\)</span>, <span class="math notranslate nohighlight">\(\omega\in A\)</span> or <span class="math notranslate nohighlight">\(\omega\in B\)</span></p></li>
+</ol>
+</div>
+<div class="section" id="axioms-of-probability">
+<h3>Axioms of Probability<a class="headerlink" href="#axioms-of-probability" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p><strong>Non-Negativity</strong> <br>
+<span class="math notranslate nohighlight">\(\forall E\in\cal{F}\)</span>, <span class="math notranslate nohighlight">\(P(E)\in\mathbb{R}\)</span> such that <span class="math notranslate nohighlight">\(P(E)\ge 0\)</span></p></li>
+<li><p><strong>Unitarity</strong> <br>
+<span class="math notranslate nohighlight">\(P(\Omega)=1\)</span></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\sigma\)</span>-additivity</strong></p></li>
+</ol>
+<p>For all <a class="reference external" href="https://en.wikipedia.org/wiki/Countable_set">countable</a> sequences of disjoint sets, <span class="math notranslate nohighlight">\(E_1\)</span>, <span class="math notranslate nohighlight">\(E_2\)</span>, <span class="math notranslate nohighlight">\(\cdots\)</span>, <span class="math notranslate nohighlight">\(P\big(\bigcup\limits_{i=1}^\infty E_i\big)=\sum\limits_{i=1}^\infty P(E_i)\)</span></p>
+</div>
+</div>
+<div class="section" id="useful-properties-of-probability-derived-from-axioms">
+<h2>Useful Properties of Probability (Derived from Axioms)<a class="headerlink" href="#useful-properties-of-probability-derived-from-axioms" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-complement-rule">
+<h3>The Complement Rule<a class="headerlink" href="#the-complement-rule" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(P(A^c)=P(\Omega\backslash A)=1-P(A)\)</span></p>
+<div class="section" id="proof">
+<h4>Proof<a class="headerlink" href="#proof" title="Permalink to this headline">¶</a></h4>
+<p><strong>Lemma: <span class="math notranslate nohighlight">\(\forall A\in\cal{F}\)</span>, <span class="math notranslate nohighlight">\(A\cup A^c = \Omega\)</span></strong> <br><br></p>
+<p>If <span class="math notranslate nohighlight">\(\omega\in A\cup A^c\)</span>, then <span class="math notranslate nohighlight">\(\omega\in A\)</span> or <span class="math notranslate nohighlight">\(\omega\in A^c\)</span>. Since <span class="math notranslate nohighlight">\(A\subseteq\Omega\)</span> and <span class="math notranslate nohighlight">\(A^c\subseteq\Omega\)</span>, <span class="math notranslate nohighlight">\(\omega\in\Omega\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(\omega\in\Omega\)</span>, since <span class="math notranslate nohighlight">\(A\subseteq\Omega\)</span>, we have two possibilities: <br></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega\in A\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega\notin A\)</span></p></li>
+</ol>
+<p>If <span class="math notranslate nohighlight">\(\omega\notin A\)</span>, then by definition <span class="math notranslate nohighlight">\(\omega\in A^c\)</span>, which means that <span class="math notranslate nohighlight">\(\omega\in A\cup A^c\)</span> and hence <span class="math notranslate nohighlight">\(\Omega\subseteq A\cup A^c\)</span></p>
+<p><span class="math notranslate nohighlight">\(\therefore A\cup A^c=\Omega\)</span></p>
+<p><strong>Claim: <span class="math notranslate nohighlight">\(P(A^c)=P(\Omega\backslash A)=1-P(A)\)</span></strong></p>
+<p>Using the fact that <span class="math notranslate nohighlight">\(A^c\)</span> and <span class="math notranslate nohighlight">\(A\)</span> are disjoint such that <span class="math notranslate nohighlight">\(A\cup A^c=\Omega\)</span>, by the <span class="math notranslate nohighlight">\(\sigma\)</span>-additivity and unitarity axioms, we have</p>
+<p><span class="math notranslate nohighlight">\(1=P(\Omega)=P(A\cup A^c)=P(A)+P(A^c)\implies P(A^c)=1-P(A)\)</span></p>
+</div>
+</div>
+<div class="section" id="numeric-bound">
+<h3>Numeric Bound<a class="headerlink" href="#numeric-bound" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\forall E\in\cal{F}\)</span>, <span class="math notranslate nohighlight">\(0\le P(E)\le 1\)</span></p>
+<div class="section" id="id1">
+<h4>Proof<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate nohighlight">\(\forall E\in\cal{F}\)</span>, axiom 1 gives us the numberic bound <span class="math notranslate nohighlight">\(P(E)\ge 0\)</span>, which leaves us to show <span class="math notranslate nohighlight">\(P(E)\le 1\)</span>. Using the complement rule above, we obtain</p>
+<p><span class="math notranslate nohighlight">\(P(E^c)=1-P(E)\ge 0\implies 1\ge P(E)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\therefore 0\le P(E)\le 1\)</span></p>
+</div>
+</div>
+<div class="section" id="probability-of-empty-set">
+<h3>Probability of Empty Set<a class="headerlink" href="#probability-of-empty-set" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(P(\emptyset)=0\)</span></p>
+<div class="section" id="id2">
+<h4>Proof<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p><strong>Lemma: <span class="math notranslate nohighlight">\(\Omega^c=\emptyset\)</span></strong> <br><br></p>
+<p><span class="math notranslate nohighlight">\(\forall\omega\in\Omega^c\)</span>, by definition <span class="math notranslate nohighlight">\(\omega\notin\Omega\)</span>. However, <span class="math notranslate nohighlight">\(\Omega\)</span> contains all possible outcomes, which is a contradiction. Hence <span class="math notranslate nohighlight">\(\Omega^c=\emptyset\)</span></p>
+<p><strong>Claim: <span class="math notranslate nohighlight">\(P(\emptyset)=0\)</span></strong> <br><br></p>
+<p>Since, <span class="math notranslate nohighlight">\(\emptyset\)</span> is the complement of <span class="math notranslate nohighlight">\(\Omega\)</span>, we can use the complement rule above and axiom 2. <br>
+<span class="math notranslate nohighlight">\(P(\Omega^c)=P(\emptyset)=1-P(\Omega)=1-1=0\)</span></p>
+</div>
+</div>
+<div class="section" id="monotonicity">
+<h3>Monotonicity<a class="headerlink" href="#monotonicity" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\forall A,B\in\cal{F}\)</span> such that <span class="math notranslate nohighlight">\(A\subseteq B\)</span>, <span class="math notranslate nohighlight">\(P(A)\le P(B)\)</span></p>
+<div class="section" id="id3">
+<h4>Proof<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p><strong>Lemma: <span class="math notranslate nohighlight">\(\forall A,B\in\cal{F}\)</span> such that <span class="math notranslate nohighlight">\(A\subseteq B\)</span>, <span class="math notranslate nohighlight">\(B=A\cup (B\backslash A)\)</span></strong></p>
+<p>If <span class="math notranslate nohighlight">\(\omega\in B\)</span>, since <span class="math notranslate nohighlight">\(A\subseteq B\)</span>, either <span class="math notranslate nohighlight">\(\omega\in A\)</span> or <span class="math notranslate nohighlight">\(\omega\notin A\)</span>. If <span class="math notranslate nohighlight">\(\omega\in A\)</span>, then <span class="math notranslate nohighlight">\(\omega\in A\cup (B\backslash A)\)</span>. If <span class="math notranslate nohighlight">\(\omega\notin A\)</span>, then <span class="math notranslate nohighlight">\(\omega\in B\backslash A\)</span> and hence <span class="math notranslate nohighlight">\(\omega\in A\cup (B\backslash A)\)</span>. Hence, <span class="math notranslate nohighlight">\(B\subseteq A\cup (B\backslash A)\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(\omega\in A\cup (B\backslash A)\)</span>, then either <span class="math notranslate nohighlight">\(\omega\in A\)</span> or <span class="math notranslate nohighlight">\(\omega\in (B\backslash A)\)</span>. If <span class="math notranslate nohighlight">\(\omega\in A\)</span>, then <span class="math notranslate nohighlight">\(\omega\in B\)</span> since <span class="math notranslate nohighlight">\(A\subseteq B\)</span>. If <span class="math notranslate nohighlight">\(\omega\in (B\backslash A)\)</span>, then by definition <span class="math notranslate nohighlight">\(\omega\in B\)</span>. Hence, <span class="math notranslate nohighlight">\(A\cup (B\backslash A)\subseteq B\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\therefore B=A\cup (B\backslash A)\)</span></p>
+<p><strong>Claim: <span class="math notranslate nohighlight">\(\forall A,B\in\cal{F}\)</span> such that <span class="math notranslate nohighlight">\(A\subseteq B\)</span>, <span class="math notranslate nohighlight">\(P(A)\le P(B)\)</span></strong></p>
+<p>Since events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\backslash A\)</span> are disjoint where <span class="math notranslate nohighlight">\(B=A\cup (B\backslash A)\)</span>, we have <br>
+<span class="math notranslate nohighlight">\(P(B)=P(A\cup(B\backslash A))=P(A)+P(B\backslash A)\)</span></p>
+<p>Since we have shown above (Numberic Bound) <span class="math notranslate nohighlight">\(\forall\omega\in\cal{F}\)</span>, <span class="math notranslate nohighlight">\(0\le P(\omega)\le 1\)</span>, we have <span class="math notranslate nohighlight">\(0\le P(B\backslash A)\le 1\)</span>, and hence <span class="math notranslate nohighlight">\(P(A)=P(B)-P(B\backslash A)\le P(B)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\therefore P(A)\le P(B)\)</span></p>
+</div>
+</div>
+<div class="section" id="rule-of-addition">
+<h3>Rule of Addition<a class="headerlink" href="#rule-of-addition" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\forall A,B\in\cal{F}\)</span>, <span class="math notranslate nohighlight">\(P(A\cup B)=P(A)+P(B)-P(A\cap B)\)</span></p>
+<div class="section" id="id4">
+<h4>Proof<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p><strong>Lemma 1: <span class="math notranslate nohighlight">\(\forall A,B\in\cal{F}\)</span>, <span class="math notranslate nohighlight">\(B\backslash A=B\backslash (A\cap B)\)</span></strong></p>
+<p>If <span class="math notranslate nohighlight">\(\omega\in B\backslash A\)</span>, then by definition <span class="math notranslate nohighlight">\(\omega\in B\)</span> and <span class="math notranslate nohighlight">\(\omega\notin A\)</span>. Since <span class="math notranslate nohighlight">\(\omega\notin A\)</span>, <span class="math notranslate nohighlight">\(\omega\notin A\cap B\)</span> and hence <span class="math notranslate nohighlight">\(\omega\in B\backslash (A\cap B)\implies B\backslash A\subseteq B\backslash (A\cap B)\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(\omega\in B\backslash (A\cap B)\)</span>, then by definition <span class="math notranslate nohighlight">\(\omega\in B\)</span> and also by definition <span class="math notranslate nohighlight">\(\omega\notin (A\cap B)\implies \omega\notin A\)</span>. Thus <span class="math notranslate nohighlight">\(\omega\in B\backslash A\)</span> and hence <span class="math notranslate nohighlight">\(B\backslash (A\cap B)\subseteq B\backslash A\)</span></p>
+<p><span class="math notranslate nohighlight">\(\therefore\forall A,B\in\cal{F}\)</span>, <span class="math notranslate nohighlight">\(B\backslash A=B\backslash (A\cap B)\)</span></p>
+<p><strong>Lemma 2: <span class="math notranslate nohighlight">\(\forall A, B\in\cal{F}\)</span>, <span class="math notranslate nohighlight">\(A\cup B=A\cup (B\backslash A)\)</span></strong></p>
+<p>We will first show <span class="math notranslate nohighlight">\(A\cup B=A\cup (B\backslash A\cap B)\)</span> and use lemma 1 to prove lemma 2.</p>
+<p><span class="math notranslate nohighlight">\(\forall\omega\in A\cup B\)</span>, by definition <span class="math notranslate nohighlight">\(\omega\in A\)</span> or <span class="math notranslate nohighlight">\(\omega\in B\)</span>. If <span class="math notranslate nohighlight">\(\omega\in A\)</span>, then <span class="math notranslate nohighlight">\(\omega\in A\cup (B\backslash A\cap B)\)</span>. If <span class="math notranslate nohighlight">\(\omega\in B\)</span>, then either <span class="math notranslate nohighlight">\(\omega\in A\cap B\)</span> and hence <span class="math notranslate nohighlight">\(\omega\in A\)</span>, or <span class="math notranslate nohighlight">\(\omega\in B\backslash A\cap B\)</span>, which means <span class="math notranslate nohighlight">\(\omega\in A\cup (B\backslash A\cap B)\)</span>. Thus, <span class="math notranslate nohighlight">\(A\cup B\subseteq A\cup (B\backslash A\cap B)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\forall\omega\in A\cup (B\backslash A\cap B)\)</span>, by definition <span class="math notranslate nohighlight">\(\omega\in A\)</span> or <span class="math notranslate nohighlight">\(\omega\in B\backslash A\cap B\)</span>. If <span class="math notranslate nohighlight">\(\omega\in A\)</span>, then <span class="math notranslate nohighlight">\(\omega\in A\cap B\)</span>. If <span class="math notranslate nohighlight">\(\omega\in B\backslash A\cap B\)</span>, then by definition <span class="math notranslate nohighlight">\(\omega\in B\)</span> and hence <span class="math notranslate nohighlight">\(\omega\in A\cup B\)</span>. Thus, <span class="math notranslate nohighlight">\(A\cup (B\backslash A\cap B)\subseteq A\cup B\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\therefore A\cup B = A\cup (B\backslash A\cap B)\)</span> and using Lemma 1 above, we have <span class="math notranslate nohighlight">\(A\cup B = A\cup (B\backslash A)\)</span></p>
+<p><strong>Claim: <span class="math notranslate nohighlight">\(\forall A,B\in\cal{F}\)</span>, <span class="math notranslate nohighlight">\(P(A\cup B)=P(A)+P(B)-P(A\cap B)\)</span></strong></p>
+<p>By the <span class="math notranslate nohighlight">\(\sigma\)</span>-additivity axiom on disjoint sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\backslash A\)</span>, and the lemmas above, we have <span class="math notranslate nohighlight">\(P(A\cup B)=P(A\cup (B\backslash A))=P(A)+P(B\backslash A)=P(A)+P(B\backslash (A\cap B))\)</span></p>
+<p>Using the <span class="math notranslate nohighlight">\(\sigma\)</span>-addivity axiom on disjoint sets <span class="math notranslate nohighlight">\(A\cap B\)</span> and <span class="math notranslate nohighlight">\(B\backslash (A\cap B)\)</span>, we obtain <span class="math notranslate nohighlight">\(P(B)=P\bigg(\Big(A\cap B\Big)\cup\Big(B\backslash \big(A\cap B\big)\Big)\bigg)=P(A\cap B) + P(B\backslash (A\cap B))\)</span></p>
+<p><span class="math notranslate nohighlight">\(\implies P(A\cup B)=P(A)+P(B\backslash (A\cup B))=P(A)+P(B)-P(A\cap B)\)</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="some-useful-definitions">
+<h2>Some Useful Definitions<a class="headerlink" href="#some-useful-definitions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="independence">
+<h3>Independence<a class="headerlink" href="#independence" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\forall A,B\in\cal{F}\)</span>, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are independent <span class="math notranslate nohighlight">\(\iff\)</span> <span class="math notranslate nohighlight">\(P(A\cap B)=P(A)P(B)\)</span></p>
+</div>
+<div class="section" id="mutually-exclusive">
+<h3>Mutually Exclusive<a class="headerlink" href="#mutually-exclusive" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\forall A,B\in\cal{F}\)</span>, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are mutually exclusive <span class="math notranslate nohighlight">\(\iff\)</span> <span class="math notranslate nohighlight">\(P(A\cap B) = 0\)</span></p>
+</div>
+<div class="section" id="conditional-probability">
+<h3>Conditional Probability<a class="headerlink" href="#conditional-probability" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\forall A,B\in\cal{F}\)</span>, <span class="math notranslate nohighlight">\(P(A|B)=\frac{P(A\cap B)}{P(B)}\)</span></p>
+</div>
+<div class="section" id="bayes-theorem">
+<h3>Bayes Theorem<a class="headerlink" href="#bayes-theorem" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\forall A,B\in\cal{F}\)</span>, <span class="math notranslate nohighlight">\(P(A|B)=\frac{P(B|A)P(A)}{P(B)}\)</span></p>
+<div class="section" id="id5">
+<h4>Proof<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate nohighlight">\(P(A|B)=\frac{P(A\cap B)}{P(B)}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{P(B|A)P(A)}{P(B)}=\frac{\frac{P(B\cap A)}{P(A)}P(A)}{P(B)}=\frac{P(B\cap A)}{P(B)}=\frac{P(A\cap B)}{P(B)}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\therefore P(A|B)=\frac{P(B|A)P(A)}{P(B)}\)</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="practical-probability-mathematics">
+<h2>Practical Probability Mathematics<a class="headerlink" href="#practical-probability-mathematics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="permutations">
+<h3>Permutations<a class="headerlink" href="#permutations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="definition">
+<h4>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h4>
+<p>A set or collection of items where order matters. For instance, each sequence of characters that form a license plate is a distinct permutation. Another example is choosing a card from a deck of cards without replacement. The sequence of cards that is chosen form a permutation.</p>
+<p>Given a set of n items from which we want to choose k items without replacement in an order-dependent fashion, the number of possibilities is given by</p>
+<p><span class="math notranslate nohighlight">\(P(n,k)=\frac{n!}{(n-k)!}\)</span></p>
+</div>
+<div class="section" id="dealing-with-repeated-elements">
+<h4>Dealing With Repeated Elements<a class="headerlink" href="#dealing-with-repeated-elements" title="Permalink to this headline">¶</a></h4>
+<p>Suppose an item occurs r times in our set. The number of permutations then is given by</p>
+<p><span class="math notranslate nohighlight">\(P(n,k)=\frac{n!}{r!(n-k)!}\)</span></p>
+<p>Example: How many different permutations are there of the letters in the word “gooogle”?</p>
+<p>Answer: The word “gooogle” has 7 letters. Since we have three ‘o’s and two ‘g’s, the total number of permutations is given by \frac{7!}{3!2!}$</p>
+</div>
+</div>
+<div class="section" id="combination">
+<h3>Combination<a class="headerlink" href="#combination" title="Permalink to this headline">¶</a></h3>
+<p>A combination is an order-independent set or collection of items. For instance, if you are choosing three people for a team out of ten people, the order that you choose the people does not matter, just the total number of distinct teams.</p>
+<p>The number of combinations for choosing r items out of n possibilities is given by:</p>
+<p><span class="math notranslate nohighlight">\(C(n,k)=\frac{n!}{k!(n-k)!}\)</span></p>
+<p>This corresponds to a permutation where an element has k repeats. This makes intuitive sense because for every distinct permutation of <span class="math notranslate nohighlight">\(k\)</span> items (distinct here means that the count of each individual item type is unique since order does not matter), there are k! arrangements of those items that we consider “repeats”.</p>
+</div>
+<div class="section" id="sums">
+<h3>Sums<a class="headerlink" href="#sums" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="arithmetic-sum">
+<h4>Arithmetic Sum<a class="headerlink" href="#arithmetic-sum" title="Permalink to this headline">¶</a></h4>
+<p>An arithmetic sequence is a list of integers <span class="math notranslate nohighlight">\(a_1,a_2,\cdots,a_n\)</span> such that <span class="math notranslate nohighlight">\(\forall i\in\{2,\cdots,n\}\)</span> <span class="math notranslate nohighlight">\(a_i-a_{i-1}=d\)</span> for some <span class="math notranslate nohighlight">\(d\in\mathbb{N}\)</span> where <span class="math notranslate nohighlight">\(d&gt;0\)</span></p>
+<p>If we sum this arithmetic sequence with <span class="math notranslate nohighlight">\(n\)</span> terms, initial element <span class="math notranslate nohighlight">\(a_0\)</span>, last element <span class="math notranslate nohighlight">\(a_n\)</span>, and difference <span class="math notranslate nohighlight">\(d\)</span> between terms, we generate an arithmetic sum whose formula is shown below:</p>
+<p><span class="math notranslate nohighlight">\(S=\frac{(a_0+a_n)n}{2}\)</span></p>
+</div>
+<div class="section" id="id6">
+<h4>Proof<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p><strong>Lemma: <span class="math notranslate nohighlight">\(\sum\limits_{i=1}^n (i - 1) = \frac{n(n-1)}{2}\)</span></strong></p>
+<p>If <span class="math notranslate nohighlight">\(n\)</span> is even, then we have</p>
+<p><span class="math notranslate nohighlight">\(\sum\limits_{i=1}^n (i - 1)=\bigg(\sum\limits_{i=1}^n i\bigg) - n\)</span></p>
+<p><span class="math notranslate nohighlight">\(\sum\limits_{i=1}^n i=\sum\limits_{i=1}^{n/2} i +\sum\limits_{i=(n/2)+1}^n i=\sum\limits_{i=1}^{n/2} i +\sum\limits_{i=1}^{n/2} (\frac{n}{2}+i)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\sum\limits_{i=1}^{n/2} i\)</span> corresponds to summing the numbers 1 to <span class="math notranslate nohighlight">\(\frac{n}{2}\)</span>. <span class="math notranslate nohighlight">\(\forall w\in\{1,\cdots,\frac{n}{2}\}\exists 1\le k\le\frac{n}{2}\)</span> such that <span class="math notranslate nohighlight">\(w+k=\frac{n}{2}+1\implies w=\frac{n}{2}-k+1\)</span>, which allows us to rewrite our summation as <span class="math notranslate nohighlight">\(\sum\limits_{i=1}^{n/2} (\frac{n}{2}-i+1)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\implies\sum\limits_{i=1}^n i=\sum\limits_{i=1}^{n/2} (\frac{n}{2}-i+1) +\sum\limits_{i=1}^{n/2} (\frac{n}{2}+i)=\sum\limits_{i=1}^{n/2} (n+1)=\frac{n}{2}(n+1)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\implies\sum\limits_{i=1}^n (i - 1)=\bigg(\sum\limits_{i=1}^n i\bigg) - n=\frac{n^2}{2}+\frac{n}{2}-n=\frac{n^2}{2}-\frac{n}{2}=\frac{n(n-1)}{2}\)</span></p>
+<p>Now suppose that <span class="math notranslate nohighlight">\(n\)</span> is odd and hence <span class="math notranslate nohighlight">\(n-1\)</span> is even. Using the fact that <span class="math notranslate nohighlight">\(\sum\limits_{i=1}^n (i - 1)=\sum\limits_{i=2}^n (i - 1)=\sum\limits_{i=1}^{n-1} i\)</span> and using similar logic to the case when <span class="math notranslate nohighlight">\(n\)</span> is even, we obtain</p>
+<p><span class="math notranslate nohighlight">\(\sum\limits_{i=1}^{n-1} i=\sum\limits_{i=1}^{(n-1)/2} (\frac{n-1}{2}-i+1) +\sum\limits_{i=1}^{(n-1)/2} (\frac{n-1}{2}+i)=\sum\limits_{i=1}^{(n-1)/2} n=\frac{n(n-1)}{2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\therefore\sum\limits_{i=1}^n (i - 1) = \frac{n(n-1)}{2}\)</span></p>
+<p><strong>Claim: <span class="math notranslate nohighlight">\(S=\frac{(a_0+a_n)n}{2}\)</span></strong></p>
+<p><span class="math notranslate nohighlight">\(S=\sum\limits_{i=1}^n a_i=\sum\limits_{i=1}^n a_1+(i-1)\cdot d=n\cdot a_1+d\sum\limits_{i=1}^n (i-1)=n\cdot a_1+d\frac{n(n-1)}{2}=\frac{n}{2}\big(2a_1+d(n-1)\big)\)</span></p>
+<p>Using the fact that <span class="math notranslate nohighlight">\(a_n=a_1+(n-1)d\)</span>, we obtain</p>
+<p><span class="math notranslate nohighlight">\(S=\frac{n}{2}\big(2a_1+d(n-1)\big)=\frac{n}{2}\big(a_1+a_n\big)\)</span></p>
+</div>
+</div>
+<div class="section" id="geometric-sum">
+<h3>Geometric Sum<a class="headerlink" href="#geometric-sum" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="finite-case">
+<h4>Finite Case<a class="headerlink" href="#finite-case" title="Permalink to this headline">¶</a></h4>
+<p>Given a non-zero number <span class="math notranslate nohighlight">\(a_0\in\mathbb{R}\)</span> and a rate <span class="math notranslate nohighlight">\(r\in\mathbb{R}\)</span> such that <span class="math notranslate nohighlight">\(r\ne 1\)</span>, a finite geometric series with <span class="math notranslate nohighlight">\(n\)</span> terms is a sequence of numbers <span class="math notranslate nohighlight">\(a_0,r\cdot a_0,\cdots,r^{n-1}a_0\)</span>.</p>
+<p>The sum of the terms in a geometric series is called a geometric sum. The formula for a geometric sum is given by</p>
+<p><span class="math notranslate nohighlight">\(S_n=\frac{(1-r^n)a_0}{1-r}\)</span></p>
+<div class="section" id="id7">
+<h5>Proof<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h5>
+<p>Multiplying both sides of the summation by <span class="math notranslate nohighlight">\(r\)</span> and subtracting the two equations, we obtain</p>
+<p><span class="math notranslate nohighlight">\(S_n=a_0+r\cdot a_0+\cdots + r^{n-1}\cdot a_0\)</span></p>
+<p><span class="math notranslate nohighlight">\(r\cdot S_n=r\cdot(a_0+r\cdot a_0+\cdots + r^{n-1}\cdot a_0)=r\cdot a_0+r^2\cdot a_0+\cdots + r^n\cdot a_0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\implies S_n-r\cdot S_n=(a_0+r\cdot a_0+\cdots + r^{n-1}\cdot a_0)-(r\cdot a_0+r^2\cdot a_0+\cdots + r^n\cdot a_0)\)</span></p>
+<p><span class="math notranslate nohighlight">\((1-r)S_n=a_0-r^n\cdot a_0=(1-r^n)a_0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\therefore S_n=\frac{(1-r^n)a_0}{1-r}\)</span></p>
+</div>
+</div>
+<div class="section" id="infinite-case">
+<h4>Infinite Case<a class="headerlink" href="#infinite-case" title="Permalink to this headline">¶</a></h4>
+<p>In order to for a sum of an infinite geometric sum to converge to a value, <span class="math notranslate nohighlight">\(r\)</span> must satisfy <span class="math notranslate nohighlight">\(0\le r&lt;1\)</span>. Given such an <span class="math notranslate nohighlight">\(r\)</span>, the value for the sum becomes</p>
+<p><span class="math notranslate nohighlight">\(S_n=\frac{a_0}{1-r}\)</span></p>
+<div class="section" id="id8">
+<h5>Proof<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(\lim\limits_{n\to\infty}S_n=\lim\limits_{n\to\infty}\frac{(1-r^n)a_0}{1-r}=\lim\limits_{n\to\infty}\frac{a_0}{1-r}+\lim\limits_{n\to\infty}\frac{r^na_0}{1-r}\)</span></p>
+<p>Since <span class="math notranslate nohighlight">\(0\le r &lt; 1\)</span>, <span class="math notranslate nohighlight">\(\lim\limits_{n\to\infty}r^n = 0\)</span> and hence <span class="math notranslate nohighlight">\(\lim\limits_{n\to\infty}\frac{r^n a_0}{1-r} = 0\)</span></p>
+<p>We also know that <span class="math notranslate nohighlight">\(\frac{a_0}{1-r}\)</span> has no dependence on <span class="math notranslate nohighlight">\(n\)</span> and hence <span class="math notranslate nohighlight">\(\lim\limits_{n\to\infty}\frac{a_0}{1-r}=\frac{a_0}{1-r}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\implies S_\infty=\lim\limits_{n\to\infty}\frac{a_0}{1-r}+\lim\limits_{n\to\infty}\frac{r^na_0}{1-r}=\frac{a_0}{1-r}\)</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../about.html" title="previous page">LearningToDS</a>
+    <a class='right-next' id="next-link" href="Probability_Basics_II.html" title="next page">Probability Basics II</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By DistilledData<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
