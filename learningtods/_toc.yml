@@ -6,3 +6,6 @@
   - file: notebooks/Probability_Basics_II.ipynb
   - file: notebooks/Probability_Basics_III.ipynb
   - file: notebooks/Common_Probability_Distributions_Discrete.ipynb
+- part: Models
+  chapters:
+  - file: notebooks/Classification_Basics.ipynb

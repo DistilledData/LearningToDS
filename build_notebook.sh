@@ -9,11 +9,17 @@ do
     cp $file ${book_dir}/$file
 done
 
+#copy images
+image_dir=${book_dir}/images
+source_dir=images
+rm ${image_dir} || true
+cp -r ${source_dir} ${image_dir}
+
 #copy notebook files
 notebook_dir=${book_dir}/notebooks
 mkdir ${notebook_dir} || true
 source_dir=notebooks
-for file in Probability_Basics.ipynb Probability_Basics_II.ipynb Probability_Basics_III.ipynb Common_Probability_Distributions_Discrete.ipynb
+for file in Probability_Basics.ipynb Probability_Basics_II.ipynb Probability_Basics_III.ipynb Common_Probability_Distributions_Discrete.ipynb Classification_Basics.ipynb
 do
     rm ${notebook_dir}/$file || true
     cp ${source_dir}/$file ${notebook_dir}
@@ -32,4 +38,4 @@ done
 popd
 
 #publish code to github pages
-#ghp-import -n -p -f ${book_dir}/_build/html
+ghp-import -n -p -f ${book_dir}/_build/html
