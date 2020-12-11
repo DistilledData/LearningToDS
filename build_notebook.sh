@@ -10,4 +10,12 @@ done
 
 jupyter-book build ${book_dir}
 
+#need to change master to main in binder url for binder to work
+pushd ${book_dir}/_build/html/notebooks
+for file in $(ls)
+do
+    sed -i 's/\/master?/\/main?/' $file
+done
+popd
+
 ghp-import -n -p -f ${book_dir}/_build/html
