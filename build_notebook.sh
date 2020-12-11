@@ -2,20 +2,33 @@
 
 book_dir=learningtods
 
+#copy configuration files
 for file in _toc.yml _config.yml about.md requirements.txt
 do
     rm ${book_dir}/$file
     cp $file ${book_dir}/$file
 done
 
+#copy notebook files
+notebook_dir=${book_dir}/notebooks
+source_dir=notebooks
+for file in Probability_Basics.ipynb Probability_Basics_II.ipynb Probability_Basics_III.ipynb Common_Probability_Distributions_Discrete.ipynb
+do
+    rm ${notebook_dir}/$file || true
+    cp ${source_dir}/$file ${notebook_dir}
+done
+
 jupyter-book build ${book_dir}
 
-#need to change master to main in binder url for binder to work
 pushd ${book_dir}/_build/html/notebooks
 for file in $(ls)
 do
+    #need to change master to main in binder url for binder to work
     sed -i 's/\/master?/\/main?/' $file
+    #insert MathJax script that renders latex correctly in html
+    sed -i '/<head>/a <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>' Probability_Basics.html
 done
 popd
 
+#publish code to github pages
 #ghp-import -n -p -f ${book_dir}/_build/html
