@@ -1,0 +1,6 @@
+- file: about
+- part: Probability
+  chapters:
+  - file: notebooks/Probability_Basics.ipynb
+    title: Probability Basics I
+  - file: notebooks/Probability_Basics_II.ipynb
