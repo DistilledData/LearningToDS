@@ -1,0 +1,1132 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Probability Basics III &#8212; LearningToDS</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Common Probability Distributions: Discrete" href="Common_Probability_Distributions_Discrete.html" />
+    <link rel="prev" title="Probability Basics II" href="Probability_Basics_II.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">LearningToDS</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   LearningToDS
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Probability
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Probability_Basics.html">
+   Probability Basics I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Probability_Basics_II.html">
+   Probability Basics II
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Probability Basics III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Common_Probability_Distributions_Discrete.html">
+   Common Probability Distributions: Discrete
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Models
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Classification_Basics.html">
+   Classification Basics
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/Probability_Basics_III.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/distilleddata/LearningToDS/main?urlpath=tree/notebooks/notebooks/Probability_Basics_III.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/distilleddata/LearningToDS/blob/main/notebooks/notebooks/Probability_Basics_III.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mean">
+   Mean
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sample-mean">
+     Sample Mean
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#population-mean">
+     Population Mean
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#relation-between-sample-and-population-mean">
+     Relation between Sample and Population Mean
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variance">
+   Variance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sample-variance">
+     Sample Variance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#population-variance">
+     Population Variance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#relation-between-sample-and-population-variance">
+     Relation between Sample and Population Variance
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#properties-of-variance">
+   Properties of Variance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simplified-form">
+     Simplified Form
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#proof">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathematical-properties">
+     Mathematical Properties
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#non-negativity">
+     Non-Negativity
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variance-of-0">
+     Variance of 0
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#covariance">
+   Covariance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sample-covariance">
+     Sample Covariance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#population-covariance">
+     Population Covariance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#properties-of-covariance">
+     Properties of Covariance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Simplified Form
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Proof:
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Mathematical Properties
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#relationship-to-variance">
+     Relationship to Variance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#independence">
+     Independence
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uncorrelatedness-does-not-imply-independence">
+     Uncorrelatedness does NOT imply independence
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlation">
+   Correlation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sample-correlation">
+     Sample Correlation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#population-correlation">
+     Population Correlation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#properties-of-correlation">
+   Properties of Correlation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#symmetry">
+     Symmetry
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bounds-for-sample-correlation">
+     Bounds for Sample Correlation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bounds-for-population-correlation">
+     Bounds for Population Correlation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id11">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discussion">
+     Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indicator-functions">
+   Indicator Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indicator-function-for-intersection">
+     Indicator Function for Intersection
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indicator-function-for-union">
+     Indicator Function for Union
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id13">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indicator-function-of-complement">
+     Indicator Function of Complement
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id14">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#powers-of-indicator-function">
+     Powers of Indicator Function
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id15">
+       Proof
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mean-variance-and-covariance-of-indicator-function">
+     Mean, Variance and Covariance of Indicator Function
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id16">
+       Mean
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id17">
+         Proof
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id18">
+       Variance
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id19">
+         Proof
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id20">
+       Covariance
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id21">
+         Proof
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p>Author: <a class="reference external" href="https://github.com/DistilledData">DistilledData</a></p>
+<p>\tableofcontents
+\pagebreak</p>
+<div class="section" id="probability-basics-iii">
+<h1>Probability Basics III<a class="headerlink" href="#probability-basics-iii" title="Permalink to this headline">¶</a></h1>
+<p>This notebook continues the discussion of probability from “Advanced_Probabiliity_Basics.” In particular, this notebook will focus continue our discussion of expectation with mean, variance and covariance. This notebook will end with a brief discussion of the indicator function. <br></p>
+<div class="section" id="mean">
+<h2>Mean<a class="headerlink" href="#mean" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sample-mean">
+<h3>Sample Mean<a class="headerlink" href="#sample-mean" title="Permalink to this headline">¶</a></h3>
+<p>Given a set of data <span class="math notranslate nohighlight">\(x_1,\cdots,x_n\)</span>, the sample mean <span class="math notranslate nohighlight">\(\bar{x}\)</span> is given by
+$<span class="math notranslate nohighlight">\(\bar{x}=\frac{1}{n}\sum\limits_{i=1}^nx_i\)</span>$</p>
+</div>
+<div class="section" id="population-mean">
+<h3>Population Mean<a class="headerlink" href="#population-mean" title="Permalink to this headline">¶</a></h3>
+<p>Since the mean for a random variable <span class="math notranslate nohighlight">\(X\)</span> is given by <span class="math notranslate nohighlight">\(\mathbb{E}[X]\)</span>, I will refer the reader to the discussion on expected value and its properties in the “Advanced_Probability_Basics” notebook.</p>
+</div>
+<div class="section" id="relation-between-sample-and-population-mean">
+<h3>Relation between Sample and Population Mean<a class="headerlink" href="#relation-between-sample-and-population-mean" title="Permalink to this headline">¶</a></h3>
+<p>If each <span class="math notranslate nohighlight">\(x_i\)</span> in a data set corresponds to the outcome of a trial for the random variable X, and if each <span class="math notranslate nohighlight">\(x_i\)</span> is independently drawn, then we expect sample mean <span class="math notranslate nohighlight">\(\bar{x}\)</span> to approach the theoretical mean <span class="math notranslate nohighlight">\(\mathbb{E}[X]\)</span> as we continue to draw more and more samples. In other words,
+$<span class="math notranslate nohighlight">\(\lim\limits_{n\to\infty}\bar{x}=\mathbb{E}[X]\)</span>$</p>
+</div>
+</div>
+<div class="section" id="variance">
+<h2>Variance<a class="headerlink" href="#variance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sample-variance">
+<h3>Sample Variance<a class="headerlink" href="#sample-variance" title="Permalink to this headline">¶</a></h3>
+<p>Informally, given a particular set of data, variance measures the spread of the data. More formally, given a set of data <span class="math notranslate nohighlight">\(x_1,\cdots,x_n\)</span> with mean <span class="math notranslate nohighlight">\(\bar{x}\)</span>, the sample variance is
+$<span class="math notranslate nohighlight">\(S^2=\frac{\sum\limits_{i=1}^n(x_i-\bar{x})^2}{n-1}\)</span>$</p>
+</div>
+<div class="section" id="population-variance">
+<h3>Population Variance<a class="headerlink" href="#population-variance" title="Permalink to this headline">¶</a></h3>
+<p>We can also measure variance for random variables! Given random variable <span class="math notranslate nohighlight">\(X\)</span> with mean <span class="math notranslate nohighlight">\(\mathbb{E}[X]\)</span>, the variance is defined below
+$<span class="math notranslate nohighlight">\(\text{Var}(X)=\mathbb{E}[(X-\mathbb{E}[X])^2]\)</span>$</p>
+</div>
+<div class="section" id="relation-between-sample-and-population-variance">
+<h3>Relation between Sample and Population Variance<a class="headerlink" href="#relation-between-sample-and-population-variance" title="Permalink to this headline">¶</a></h3>
+<p>If the <span class="math notranslate nohighlight">\(x_i\)</span> in the data above are an outcome in the outcome space for <span class="math notranslate nohighlight">\(X\)</span> such that each <span class="math notranslate nohighlight">\(x_i\)</span> are drawn independently, then we find that
+$<span class="math notranslate nohighlight">\(\lim\limits_{n\to\infty}S^2=\text{Var}(X)\)</span>$</p>
+</div>
+</div>
+<div class="section" id="properties-of-variance">
+<h2>Properties of Variance<a class="headerlink" href="#properties-of-variance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="simplified-form">
+<h3>Simplified Form<a class="headerlink" href="#simplified-form" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\text{Var}(X)=\mathbb{E}[X^2]-\mathbb{E}[X]^2\)</span></p>
+<div class="section" id="proof">
+<h4>Proof<a class="headerlink" href="#proof" title="Permalink to this headline">¶</a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned} 
+\text{Var}(X)&amp;=\mathbb{E}[(X-\mathbb{E}[X])^2=\mathbb{E}\big[X^2-2X\mathbb{E}[X]+\mathbb{E}[X]^2\big] \\
+&amp;=\mathbb{E}[X^2]-2\mathbb{E}[X]^2+\mathbb{E}[X]^2=\mathbb{E}[X^2]-\mathbb{E}[X]^2
+\end{aligned}\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="mathematical-properties">
+<h3>Mathematical Properties<a class="headerlink" href="#mathematical-properties" title="Permalink to this headline">¶</a></h3>
+<p>Assume real-valued random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> with means <span class="math notranslate nohighlight">\(\mu_X\)</span> and <span class="math notranslate nohighlight">\(\mu_Y\)</span>. We will also assume some <span class="math notranslate nohighlight">\(a,b\in\mathbb{R}\)</span>. Properties 4 and 5 use the definition of covariance that we define further below in this notebook.</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\text{Var}(a)=0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{Var}(X+a)=\text{Var}(X)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{Var}(aX)=a^2\text{Var}(X)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{Var}(aX+bY)=a^2\text{Var}(X)+b^2\text{Var}(Y)+2ab\text{Cov}(X,Y)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{Var}(aX-bY)=a^2\text{Var}(X)+b^2\text{Var}(Y)-2ab\text{Cov}(X,Y)\)</span></p></li>
+</ol>
+<div class="section" id="id1">
+<h4>Proof<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p><strong>Property 1</strong></p>
+<div class="math notranslate nohighlight">
+\[\text{Var}(a)=\mathbb{E}[a^2]-\mathbb{E}[a]^2=a^2-a^2=0\]</div>
+<p><strong>Property 2</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\text{Var}(aX)&amp;=\mathbb{E}[(aX)^2]-\mathbb{E}[aX]^2=\mathbb{E}[(aX)^2]-(a\mathbb{E}[X])^2 \\
+&amp;=\mathbb{E}[a^2X^2]-a^2\mathbb{E}[X]^2=a^2\mathbb{E}[X^2]-a^2\mathbb{E}[X]^2 \\
+&amp;=a^2(\mathbb{E}[X^2]-\mathbb{E}[X]^2)=a^2\text{Var}(X)
+\end{aligned}\end{split}\]</div>
+<p><strong>Property 3</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\text{Var}(X+a)&amp;=\mathbb{E}[(X+a)^2]-\mathbb{E}[X+a]^2=\mathbb{E}[(X+a)^2]-(\mathbb{E}[X]+\mathbb{E}[a])^2 \\
+&amp;=\mathbb{E}[(X+a)^2]-(\mathbb{E}[X]+a)^2 \\
+&amp;=\mathbb{E}[X^2+2aX+a^2]-(\mathbb{E}[X]^2+2a\mathbb{E}[X]+a^2) \\
+&amp;=\mathbb{E}[X^2]+2a\mathbb{E}[X]+a^2-(\mathbb{E}[X]^2+2a\mathbb{E}[X]+a^2) \\
+&amp;=\mathbb{E}[X^2]-\mathbb{E}[X]^2=\text{Var}(X)
+\end{aligned}\end{split}\]</div>
+<p><strong>Property 4</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\text{Var}(aX+bY)&amp;=\mathbb{E}[(aX+bY)^2]-\mathbb{E}[aX+bY]^2 \\
+&amp;=\mathbb{E}[(a^2X^2+2abXY+b^2Y^2]-(a\mathbb{E}[X]+b\mathbb{E}[Y])^2 \\
+&amp;=a^2\mathbb{E}[X^2]+2ab\mathbb{E}[XY]+b^2\mathbb{E}[Y^2]-(a^2\mathbb{E}[X]^2+2ab\mathbb{E}[X]\mathbb{E}[Y]+b^2\mathbb{E}[Y]^2) \\
+&amp;=a^2(\mathbb{E}[X^2]-\mathbb{E}[X]^2)+b^2(\mathbb{E}[Y^2]-\mathbb{E}[Y]^2)+2ab(\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]) \\
+&amp;=a^2\text{Var}(X)+b^2\text{Var}(Y)+2ab\text{Cov}(X,Y) \\
+\end{aligned}\end{split}\]</div>
+<p><strong>Property 5</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\text{Var}(aX-bY)&amp;=\mathbb{E}[(aX-bY)^2]-\mathbb{E}[aX-bY]^2 \\
+&amp;=\mathbb{E}[(a^2X^2-2abXY+b^2Y^2]-(a\mathbb{E}[X]+b\mathbb{E}[Y])^2 \\
+&amp;=a^2\mathbb{E}[X^2]-2ab\mathbb{E}[XY]+b^2\mathbb{E}[Y^2]-(a^2\mathbb{E}[X]^2-2ab\mathbb{E}[X]\mathbb{E}[Y]+b^2\mathbb{E}[Y]^2) \\
+&amp;=a^2(\mathbb{E}[X^2]-\mathbb{E}[X]^2)+b^2(\mathbb{E}[Y^2]-\mathbb{E}[Y]^2)-2ab(\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]) \\
+&amp;=a^2\text{Var}(X)+b^2\text{Var}(Y)-2ab\text{Cov}(X,Y) \\
+\end{aligned}\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="non-negativity">
+<h3>Non-Negativity<a class="headerlink" href="#non-negativity" title="Permalink to this headline">¶</a></h3>
+<p>Given a real-valued random variable <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(\text{Var}(X)\ge 0\)</span></p>
+<div class="section" id="id2">
+<h4>Proof<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate nohighlight">\(\text{Var}(X)=\mathbb{E}[(X-\mathbb{E}[X])^2]\)</span></p>
+<p>Suppose <span class="math notranslate nohighlight">\(X\)</span> is a real-valued continuous random variable with density function <span class="math notranslate nohighlight">\(f_X\)</span> and mean <span class="math notranslate nohighlight">\(\mu_X\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\text{Var}(X)=\int_\mathbb{R}(x-\mu_X)^2f_X(x)dx\)</span></p>
+<p><span class="math notranslate nohighlight">\(\forall x\in\mathbb{R}\)</span> <span class="math notranslate nohighlight">\((x-\mu_X)^2\ge 0\)</span> and <span class="math notranslate nohighlight">\(f_X(x)\ge0\implies \int_\mathbb{R}(X-\mu_X)^2f_X(x)dx\ge\int_\mathbb{R}0dx=0\)</span></p>
+<p>Therefore, the integral and hence <span class="math notranslate nohighlight">\(\text{Var}(X)\)</span> will also be non-negative</p>
+<p>Suppose <span class="math notranslate nohighlight">\(X\)</span> is a real-valued discrete random variable with PMF <span class="math notranslate nohighlight">\(p_X\)</span> and mean <span class="math notranslate nohighlight">\(\mu_X\)</span> <br>
+<span class="math notranslate nohighlight">\(\text{Var}(X)=\sum\limits_x(X-\mu_X)^2P(X=x)\)</span></p>
+<p>For all <span class="math notranslate nohighlight">\(x\)</span> in the sum above, <span class="math notranslate nohighlight">\((X-\mu_X)^2\ge0\)</span> and <span class="math notranslate nohighlight">\(P(X=x)\ge0\)</span>, and hence <span class="math notranslate nohighlight">\((X-\mu_X)^2P(X=0)\ge0\)</span>. Since all terms in the above sum is greater or equal to 0, <span class="math notranslate nohighlight">\(\sum\limits_x(X-\mu_X)^2P(X=x)=\text{Var}(X)\ge0\)</span>.</p>
+</div>
+</div>
+<div class="section" id="variance-of-0">
+<h3>Variance of 0<a class="headerlink" href="#variance-of-0" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\text{Var}(X)=0\iff\exists a\)</span> such that <span class="math notranslate nohighlight">\(P(X=a)=1\)</span></p>
+<div class="section" id="id3">
+<h4>Proof<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate nohighlight">\(\Longrightarrow\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\text{Var}(X)=\mathbb{E}[(X-\mathbb{E}[X])^2]=0\)</span></p>
+<p>Suppose X is a continuous random variable with density function <span class="math notranslate nohighlight">\(f_X\)</span> and mean <span class="math notranslate nohighlight">\(\mu_X\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\text{Var}(X)=\mathbb{E}[(X-\mathbb{E}[X])^2]=\int_\mathbb{R}(x-\mu_X)^2f_X(x)dx=0\)</span></p>
+<p>The integral is 0 <span class="math notranslate nohighlight">\(\iff\)</span> the integrand <span class="math notranslate nohighlight">\((x-\mu_X)^2f_X(x)\)</span> is uniformly 0. However, there must be some regions where the density <span class="math notranslate nohighlight">\(f_X\)</span> is non-zero, otherwise the laws of probability will be violated. <span class="math notranslate nohighlight">\(\forall x\in\mathbb{R}\)</span> such that <span class="math notranslate nohighlight">\(f_X(x)\ne 0\)</span>, <span class="math notranslate nohighlight">\(x=\mu_X\)</span> in order for the integrand to be zero. However, since <span class="math notranslate nohighlight">\(\mu_X\)</span> is a constant, there must only be one such value <span class="math notranslate nohighlight">\(x\in\mathbb{R}\)</span> where <span class="math notranslate nohighlight">\(f_X\)</span> is non-zero. From our discussion of continuous random variables in the “Advanced_Probability_Basics” notebook, we know that one of the properties for a continuous random variable is <span class="math notranslate nohighlight">\(\forall x\in\mathbb{R}\)</span> <span class="math notranslate nohighlight">\(P(X=x)=0\)</span>, which means that we must be working with a discrete random variable.</p>
+<p>Suppose X is a discrete random variable with PMF <span class="math notranslate nohighlight">\(p_X\)</span> and mean <span class="math notranslate nohighlight">\(\mu_X\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\text{Var}(X)=\mathbb{E}[(X-\mathbb{E}[X])^2]=\sum\limits_x(X-\mu_X)^2P(X=x)=0\)</span></p>
+<p>In order for the sum to be 0, each term of the sum must be 0. However, like above, the laws of probability would be violated if <span class="math notranslate nohighlight">\(P(X=x)\)</span> were uniformly 0, and hence there is some <span class="math notranslate nohighlight">\(x\in\mathbb{R}\)</span> where <span class="math notranslate nohighlight">\(P(X=x)\)</span>. In this instance, in order for the term in the sum to be 0, <span class="math notranslate nohighlight">\(X=\mu_X\)</span>. Similar to the argument above, <span class="math notranslate nohighlight">\(\mu_X\)</span> is a constant and hence <span class="math notranslate nohighlight">\(\mu_X=x\)</span> for only one <span class="math notranslate nohighlight">\(x\in\mathbb{R}\)</span>. In order for <span class="math notranslate nohighlight">\(p_X\)</span> to be a valid PMF, we require that <span class="math notranslate nohighlight">\(p_X(x)=P(X=x)=1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\therefore\text{Var}(X)=0\implies\exists a\)</span> such that <span class="math notranslate nohighlight">\(P(X=a)=1\)</span></p>
+<p><span class="math notranslate nohighlight">\(\Longleftarrow\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}[X^2]=\sum\limits_x P(X=x)x^2=1\cdot a^2=a^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}[X]^2=\bigg(\sum\limits_x P(X=x)x\bigg)^2=a^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(\text{Var}(X)=\mathbb{E}[X^2]-\mathbb{E}[X]^2=a^2-a^2=0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\therefore\exists a\)</span> such that <span class="math notranslate nohighlight">\(P(X=a)=1\implies\text{Var}(X)=0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\therefore\text{Var}(X)=0\iff\exists a\)</span> such that <span class="math notranslate nohighlight">\(P(X=a)=1\)</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="covariance">
+<h2>Covariance<a class="headerlink" href="#covariance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sample-covariance">
+<h3>Sample Covariance<a class="headerlink" href="#sample-covariance" title="Permalink to this headline">¶</a></h3>
+<p>Given data with two covariates <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> with values <span class="math notranslate nohighlight">\((x_1,y_1),\cdots,(x_n,y_n)\)</span>, such that the sample mean for <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are <span class="math notranslate nohighlight">\(\bar{x}\)</span> and <span class="math notranslate nohighlight">\(\bar{y}\)</span>, respectively, the covariances for the distribution is <br>
+$<span class="math notranslate nohighlight">\(\text{Cov}(x,y)=\frac{1}{n}\sum\limits_i(x_i-\bar{x})(y_i-\bar{y})\)</span>$</p>
+</div>
+<div class="section" id="population-covariance">
+<h3>Population Covariance<a class="headerlink" href="#population-covariance" title="Permalink to this headline">¶</a></h3>
+<p>Intuitively, covariance measures how related one random variable is to another. Given two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> that form a <a class="reference external" href="https://en.wikipedia.org/wiki/Joint_probability_distribution">joint distribution</a> (X,Y), the covariance, often denoted <span class="math notranslate nohighlight">\(\sigma_{XY}\)</span> or <span class="math notranslate nohighlight">\(\sigma(X,Y)\)</span> is given by <br>
+$<span class="math notranslate nohighlight">\(\text{Cov}(X,Y)=\mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])]\)</span>$</p>
+</div>
+<div class="section" id="properties-of-covariance">
+<h3>Properties of Covariance<a class="headerlink" href="#properties-of-covariance" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id4">
+<h3>Simplified Form<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\text{Cov}(X,Y)=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]\)</span></p>
+<div class="section" id="id5">
+<h4>Proof:<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\text{Cov}(X,Y)&amp;=\mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])] \\
+&amp;=\mathbb{E}\big[XY-Y\mathbb{E}[X]-X\mathbb{E}[Y]+\mathbb{E}[X]\mathbb{E}[Y]\big] \\
+&amp;=\mathbb{E}\big[XY\big]-\mathbb{E}\big[Y\mathbb{E}[X]\big]-\mathbb{E}\big[X\mathbb{E}[Y]\big]+\mathbb{E}\big[\mathbb{E}[X]\mathbb{E}[Y]\big] \\
+&amp;=\mathbb{E}[XY]-\mathbb{E}[Y]\mathbb{E}[X]-\mathbb{E}[X]\mathbb{E}[Y]+\mathbb{E}[X]\mathbb{E}[Y] \\
+&amp;=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y] \\
+\end{aligned}\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>Mathematical Properties<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Assume that <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span>, <span class="math notranslate nohighlight">\(W\)</span>, <span class="math notranslate nohighlight">\(V\)</span> are real-valued random variables, and <span class="math notranslate nohighlight">\(a,b,c,d\in\mathbb{R}\)</span></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\text{Cov}(X,a)=0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{Cov}(X,Y)=\text{Cov}(Y,X)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{Cov}(aX,bY)=ab\text{Cov}(X,Y)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{Cov}(X+a,Y+b)=\text{Cov}(X,Y)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{Cov}(aX+bY,cW+dV)=ac\text{Cov}(X,W)+ad\text{Cov}(X,V)+bc\text{Cov}(Y,W)+bd\text{Cov}(Y,V)\)</span></p></li>
+</ol>
+<div class="section" id="id7">
+<h4>Proof<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p><strong>Property 1</strong></p>
+<div class="math notranslate nohighlight">
+\[\text{Cov}(X,a)=\mathbb{E}[X\cdot a]-\mathbb{E}[X]\mathbb{E}[a]=a\mathbb{E}[X]-a\mathbb{E}[X]=0\]</div>
+<p><strong>Property 2</strong></p>
+<div class="math notranslate nohighlight">
+\[\text{Cov}(X,Y)=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]=\mathbb{E}[YX]-\mathbb{E}[Y]\mathbb{E}[X]=\text{Cov}(Y,X)\]</div>
+<p><strong>Property 3</strong></p>
+<div class="math notranslate nohighlight">
+\[\text{Cov}(aX,bY)=\mathbb{E}[aX\cdot bY]-\mathbb{E}[aX]\mathbb{E}[bY]=ab(\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y])=ab\text{Cov}(X,Y)\]</div>
+<p><strong>Property 4</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\text{Cov}(X+a,Y+b)&amp;=\mathbb{E}[(X+a)(Y+b)]-\mathbb{E}[X+a]\mathbb{E}[Y+b] \\
+&amp;=\mathbb{E}[XY+aY+bX+ab]-\big(\mathbb{E}[X]\mathbb{E}[Y+b]+\mathbb{E}[a]\mathbb{E}[Y+b]\big) \\
+&amp;=\mathbb{E}[XY]+\mathbb{E}[aY]+\mathbb{E}[bX]+\mathbb{E}[ab]-\big(\mathbb{E}[X]\mathbb{E}[Y]+\mathbb{E}[X]\mathbb{E}[b]+\mathbb{E}[a]\mathbb{E}[Y]+\mathbb{E}[a]\mathbb{E}[b]\big) \\
+&amp;=\mathbb{E}[XY]+a\mathbb{E}[Y]+b\mathbb{E}[X]+ab-\big(\mathbb{E}[X]\mathbb{E}[Y]+b\mathbb{E}[X]+a\mathbb{E}[Y]+ab\big) \\
+&amp;=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]=\text{Cov}(X,Y) \\
+\end{aligned}\end{split}\]</div>
+<p><strong>Property 5</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\text{Cov}(aX+bY,cW+dV)&amp;=\mathbb{E}[(aX+bY)(cW+dV)]-\mathbb{E}[aX+bY]\mathbb{E}[cW+dV] \\
+&amp;=\mathbb{E}[(aX\cdot cW+bY\cdot cW + aX\cdot dV+bY\cdot dV)]-\big(\mathbb{E}[aX]+\mathbb{E}[bY]\big)\big(\mathbb{E}[cW]+\mathbb{E}[dV]\big) \\
+&amp;=\mathbb{E}[aX\cdot cW]+\mathbb{E}[bY\cdot cW] + \mathbb{E}[aX\cdot dV]+\mathbb{E}[bY\cdot dV] \\
+&amp;\ \ \ \ -\big(\mathbb{E}[aX]\mathbb{E}[cW]+\mathbb{E}[aX]\mathbb{E}[dV]+\mathbb{E}[bY]\mathbb{E}[cW]+\mathbb{E}[bY]\mathbb{E}[dV]\big) \\
+&amp;=\big(\mathbb{E}[aX\cdot cW]-\mathbb{E}[aX]\mathbb{E}[cW]\big)+\big(\mathbb{E}[bY\cdot cW]-\mathbb{E}[bY]\mathbb{E}[cW]\big)  \\
+&amp;\ \ \ \ + \big(\mathbb{E}[aX\cdot dV]-\mathbb{E}[aX]\mathbb{E}[dV]\big)+\big(\mathbb{E}[bY\cdot dV]-\mathbb{E}[bY]\mathbb{E}[dV]\big) \\
+&amp;=\big(\mathbb{E}[aX\cdot cW]-\mathbb{E}[aX]\mathbb{E}[cW]\big)+\big(\mathbb{E}[aX\cdot dV]-\mathbb{E}[aX]\mathbb{E}[dV]\big) \\
+&amp;\ \ \ \ +\big(\mathbb{E}[bY\cdot cW]-\mathbb{E}[bY]\mathbb{E}[cW]\big)+\big(\mathbb{E}[bY\cdot dV]-\mathbb{E}[bY]\mathbb{E}[dV]\big) \\
+&amp;=\text{Cov}(aX,cW)+\text{Cov}(aX,dV)+\text{Cov}(bY,cW)+\text{Cov}(bY,dV) \\
+&amp;=ac\text{Cov}(X, W)+ad\text{Cov}(X,V)+bc\text{Cov}(Y,W)+bd\text{Cov}(Y,V) \\
+\end{aligned}\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="relationship-to-variance">
+<h3>Relationship to Variance<a class="headerlink" href="#relationship-to-variance" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\text{Cov}(X,X)=\text{Var}(X)\)</span></p>
+</div>
+<div class="section" id="independence">
+<h3>Independence<a class="headerlink" href="#independence" title="Permalink to this headline">¶</a></h3>
+<p>If <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent, then <span class="math notranslate nohighlight">\(\text{Cov}(X,Y)=0\)</span></p>
+<div class="section" id="id8">
+<h4>Proof<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>If <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent, then <span class="math notranslate nohighlight">\(\mathbb{E}[XY]=\mathbb{E}[X]\mathbb{E}[Y]\)</span> and hence <span class="math notranslate nohighlight">\(\text{Cov}(X,Y)=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[X]=\mathbb{E}[X]\mathbb{E}[Y]-\mathbb{E}[X]\mathbb{E}[X]=0\)</span></p>
+</div>
+</div>
+<div class="section" id="uncorrelatedness-does-not-imply-independence">
+<h3>Uncorrelatedness does NOT imply independence<a class="headerlink" href="#uncorrelatedness-does-not-imply-independence" title="Permalink to this headline">¶</a></h3>
+<p>Two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are said to be <em>uncorrelated</em> if <span class="math notranslate nohighlight">\(\text{Cov}(X,Y)=0\)</span>. The properties of covariance above tell us that if <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent, then <span class="math notranslate nohighlight">\(\text{Cov}(X,Y)=0\)</span> and hence <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are uncorrelated.</p>
+<p>One immediate question that follows is whether uncorrelatedness implies independence. The simple answer is <strong>no</strong>. We will explore a counter-example to demonstrate that the implication does not hold.</p>
+<p>Consider the random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y=X^2\)</span> where <span class="math notranslate nohighlight">\(X\)</span> is a <a class="reference external" href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">uniform distribution</a> in the range <span class="math notranslate nohighlight">\([-1,1]\)</span>. <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are both dependent on the random variable <span class="math notranslate nohighlight">\(X\)</span> and hence not independent. Now, we need to show that <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are uncorrelated.</p>
+<p>Since I am deferring a discussion of common probability distributions to a future notebook, I will provide tthe required information for the computations. Given constants <span class="math notranslate nohighlight">\(a,b\in\mathbb{R}\)</span>, for a continuous uniform distribution in the range <span class="math notranslate nohighlight">\([a,b]\)</span>, <span class="math notranslate nohighlight">\(\forall x\in\mathbb{R}\)</span> the PDF is given by
+$<span class="math notranslate nohighlight">\(f(x)=\begin{cases}0 &amp; x&lt;a \\ \frac{1}{b-a} &amp; a\le x\le b \\ 0 &amp; x&gt;b\end{cases}\)</span>$</p>
+<p>In addition, we use the <a class="reference external" href="https://en.wikipedia.org/wiki/Law_of_the_unconscious_statistician">Law of the Unconscious Statistian</a> briefly discussed in the “Probability Basics II” notebook for the computation of <span class="math notranslate nohighlight">\(\mathbb{E}[X^3]\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}[X]=\int_{-\infty}^\infty xf(x)dx=\int_{-1}^1\frac{x}{2}dx=\frac{x^2}{4}\bigg|_{x=-1}^1=\frac{1}{4}-\frac{1}{4}=0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}[X]=\int_{-1}^1\frac{x^3}{2}dx=\frac{x^4}{8}\bigg|_{x=-1}^1=\frac{1}{8}-\frac{1}{8}=0\)</span></p>
+<p>Now we finally have all the tools we need to compute the covraince between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. We will use the simplified form of the covariance discussed above in order to make our calculations a tad easier.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\text{Cov}(X,Y)&amp;=\text{Cov}(X,X^2) \\ 
+&amp;=\mathbb{E}[X\cdot X^2]-\mathbb{E}[X]\mathbb{E}[X^2] \\
+&amp;=\mathbb{E}[X^3]-\mathbb{E}[X]\mathbb{E}[X^2] \\
+&amp;=0-0\cdot\mathbb{E}[X^2] \\
+&amp;=0 \\
+\end{aligned}\end{split}\]</div>
+<p>Therefore, we have shown that two random variables can be uncorrelated, but not independent.</p>
+</div>
+</div>
+<div class="section" id="correlation">
+<h2>Correlation<a class="headerlink" href="#correlation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sample-correlation">
+<h3>Sample Correlation<a class="headerlink" href="#sample-correlation" title="Permalink to this headline">¶</a></h3>
+<p>The sample correlation is called the “Pearson product-moment correlation coefficient,” “Pearson correlation coefficient,” or “correlation coefficient.”</p>
+<p>The measure of correlation for sample data <span class="math notranslate nohighlight">\((x_1,y_1),\cdots,(x_n,y_n)\)</span> for two covariates <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> with sample means <span class="math notranslate nohighlight">\(\bar{x}\)</span> and <span class="math notranslate nohighlight">\(\bar{y}\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[r_{xy}=\frac{\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum\limits_{i=1}^n(x_i-\bar{x})^2}\sqrt{\sum\limits_{i=1}^n(y_i-\bar{y})^2}}\]</div>
+</div>
+<div class="section" id="population-correlation">
+<h3>Population Correlation<a class="headerlink" href="#population-correlation" title="Permalink to this headline">¶</a></h3>
+<p>Given two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> with expected values <span class="math notranslate nohighlight">\(\mu_X\)</span> and <span class="math notranslate nohighlight">\(\mu_Y\)</span> and standard deviations <span class="math notranslate nohighlight">\(\sigma_X\)</span> and <span class="math notranslate nohighlight">\(\sigma_Y\)</span>, the population correlation is given by</p>
+<div class="math notranslate nohighlight">
+\[\rho_{X,Y}=\text{Corr}(X,Y)=\frac{\text{Cov}(X,Y)}{\sigma_X\sigma_Y}=\frac{\mathbb{E}\big[(X-\mu_X)(Y-\mu_Y)\big]}{\sigma_X\sigma_Y}\]</div>
+<div class="math notranslate nohighlight">
+\[\rho_{X,Y}=\text{Corr}(X,Y)=\frac{\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]}{\sqrt{\mathbb{E}[X^2]-\mathbb{E}[X]^2}\sqrt{\mathbb{E}[Y^2]-\mathbb{E}[Y]^2}}\]</div>
+</div>
+</div>
+<div class="section" id="properties-of-correlation">
+<h2>Properties of Correlation<a class="headerlink" href="#properties-of-correlation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="symmetry">
+<h3>Symmetry<a class="headerlink" href="#symmetry" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\text{Corr}(X,Y)=\text{Corr}(Y,X)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(r_{xy}=r_{yx}\)</span></p></li>
+</ol>
+<div class="section" id="id9">
+<h4>Proof<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p><strong>Property 1</strong></p>
+<div class="math notranslate nohighlight">
+\[\text{Corr}(X,Y)=\frac{\text{Cov}(X,Y)}{\sigma_X\sigma_Y}=\frac{\text{Cov}(Y,X)}{\sigma_Y\sigma_X}=\text{Corr}(Y,X)\]</div>
+<p><strong>Property 2</strong></p>
+<div class="math notranslate nohighlight">
+\[r_{xy}=\frac{\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum\limits_{i=1}^n(x_i-\bar{x})^2}\sqrt{\sum\limits_{i=1}^n(y_i-\bar{y})^2}}=\frac{\sum\limits_{i=1}^n(y_i-\bar{y})(x_i-\bar{x})}{\sqrt{\sum\limits_{i=1}^n(y_i-\bar{y})^2\sqrt{\sum\limits_{i=1}^n(x_i-\bar{x})^2}}}=r_{yx}\]</div>
+</div>
+</div>
+<div class="section" id="bounds-for-sample-correlation">
+<h3>Bounds for Sample Correlation<a class="headerlink" href="#bounds-for-sample-correlation" title="Permalink to this headline">¶</a></h3>
+<p>Given real-valued data set <span class="math notranslate nohighlight">\((x_1,y_1),\cdots,(x_n,y_n)\)</span>, <br>
+<span class="math notranslate nohighlight">\(-1\le r_{xy}\le 1\)</span></p>
+<div class="section" id="id10">
+<h4>Proof<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p>The above bound is a direct application of the <a class="reference external" href="https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality">Cauchy-Schwarz Inequality</a>.</p>
+<p>Consider the data set <span class="math notranslate nohighlight">\((x_1,y_1),\cdots,(x_n,y_n)\)</span> with sample mean <span class="math notranslate nohighlight">\((\bar{x},\bar{y})\)</span> and standard deviation <span class="math notranslate nohighlight">\((\sigma_x,\sigma_y)\)</span>.</p>
+<p>Consider the vectors <span class="math notranslate nohighlight">\(\mathbf{x}=[x_1-\bar{x},\cdots,x_n-\bar{x}]\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}=[y_1-\bar{y},\cdots,y_n-\bar{y}]\)</span> for the covariates <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, respectively.</p>
+<p>Given <span class="math notranslate nohighlight">\(\mathbf{a},\mathbf{b}\in\mathbb{R}^n\)</span>, denote <span class="math notranslate nohighlight">\(\langle\mathbf{a},\mathbf{b}\rangle\)</span> denote the inner product of vectors <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>. We will use the following computations in our discussion below.</p>
+<div class="math notranslate nohighlight">
+\[||\mathbf{x}||=\sqrt{\langle\mathbf{x},\mathbf{x}\rangle}=\sqrt{\sum\limits_{i=1}^n(x_i-\bar{x})^2}\]</div>
+<div class="math notranslate nohighlight">
+\[||\mathbf{y}||=\sqrt{\langle\mathbf{y},\mathbf{y}\rangle}=\sqrt{\sum\limits_{i=1}^n(y_i-\bar{y})^2}\]</div>
+<div class="math notranslate nohighlight">
+\[\langle\mathbf{x},\mathbf{y}\rangle=\sum\limits_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})\]</div>
+<p>The Caucy-Schwarz Inequality states that <span class="math notranslate nohighlight">\(\forall\mathbf{a},\mathbf{b}\in\mathbb{R}^n\)</span> <span class="math notranslate nohighlight">\(|\langle\mathbf{a},\mathbf{b}\rangle|\le||\mathbf{a}||\cdot||\mathbf{b}||\implies -1\le\frac{\langle\mathbf{a},\mathbf{b}\rangle}{||\mathbf{a}||\cdot||\mathbf{b}||}\le1\)</span></p>
+<p>Plugging in our computations above, we obtain</p>
+<p><span class="math notranslate nohighlight">\(-1\le r_{xy}=\frac{\langle\mathbf{x},\mathbf{y}\rangle}{||\mathbf{x}||\cdot||\mathbf{y}||}\le1\)</span></p>
+</div>
+</div>
+<div class="section" id="bounds-for-population-correlation">
+<h3>Bounds for Population Correlation<a class="headerlink" href="#bounds-for-population-correlation" title="Permalink to this headline">¶</a></h3>
+<p>Given real-valued random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> with joint distribution <span class="math notranslate nohighlight">\((X,Y)\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(-1\le \rho_{X,Y}\le 1\)</span></p>
+<div class="section" id="id11">
+<h4>Proof<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<p><strong>Lemma: Given real Given real-valued random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> with joint distribution <span class="math notranslate nohighlight">\((X,Y)\)</span>, with means <span class="math notranslate nohighlight">\((\mu_X,\mu_Y)\)</span> and variances <span class="math notranslate nohighlight">\((\sigma_X^2,\sigma_Y^2)\)</span>, the covariance <span class="math notranslate nohighlight">\(\text{Cov}(X,Y)\)</span> exists.</strong> <br><br></p>
+<p>The above statement is a direct result of the <a class="reference external" href="https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality">Cauchy-Schwarz Inequality</a> that states <span class="math notranslate nohighlight">\(|\text{Cov}(X,Y)|\le\sqrt{\text{Var}(X)\text{Var}(Y)}\)</span>. Since we have clear bounds for the value of <span class="math notranslate nohighlight">\(\text{Cov}(X,Y)\)</span>, it definitely exists.</p>
+<p><strong>Claim: Given real-valued random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> with joint distribution <span class="math notranslate nohighlight">\((X,Y)\)</span>, with means <span class="math notranslate nohighlight">\((\mu_X,\mu_Y)\)</span> and variances <span class="math notranslate nohighlight">\((\sigma_X^2,\sigma_Y^2)\)</span> <br>
+<span class="math notranslate nohighlight">\(-1\le \rho_{X,Y}\le 1\)</span></strong></p>
+<p>As a side note, I really enjoy the proof below because it highlights the creativity often required to show mathematical properties in an elegant fashion.</p>
+<p>Consider two real-valued random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> with joint distribution <span class="math notranslate nohighlight">\((X,Y)\)</span>. Furthermore, <span class="math notranslate nohighlight">\(X\)</span> has mean <span class="math notranslate nohighlight">\(\mu_X\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2_X\)</span>, while <span class="math notranslate nohighlight">\(Y\)</span> has mean <span class="math notranslate nohighlight">\(\mu_Y\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2_Y\)</span>.</p>
+<p>Now, consider the function below for some <span class="math notranslate nohighlight">\(t\in\mathbb{R}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+g(t)&amp;=\text{Var}(Xt+Y)=\mathbb{E}\bigg[\big((X-\mu_X)t+(Y-\mu_Y)\big)^2\bigg] \\
+&amp;=\mathbb{E}\big[(X-\mu_X)^2t^2+2t(X-\mu_X)(Y-\mu_Y)+(Y-\mu_Y)^2\big] \\
+&amp;=\sigma_X^2t^2+2t\text{Cov}(X,Y)+\sigma_Y^2 \\
+\end{aligned}\end{split}\]</div>
+<p>In order for us to employ the non-negativity property of the variance, we first need to show that <span class="math notranslate nohighlight">\(\text{Var}(Xt+Y)\)</span> exists. Since the variances for <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> exist, we know <span class="math notranslate nohighlight">\(\text{Cov}(X,Y)\)</span> exists (by our lemma above) and have an exact relation for the variance shown below.
+$<span class="math notranslate nohighlight">\(\text{Var}(Xt+Y)=t^2\text{Var}(X)+\text{Var}(Y)+2t\text{Cov}(X,Y)\)</span>$</p>
+<p>Since variance is non-negative and the above is a quadratic function with respect to <span class="math notranslate nohighlight">\(t\)</span>, we know the discrinimant must be greater than or equal to 0. In other words,</p>
+<p><span class="math notranslate nohighlight">\((2\text{Cov}(X,Y))^2-4\sigma_X^2\sigma_Y^2=4\text{Cov}^2(X,Y)-4\sigma_X^2\sigma_Y^2\ge 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\implies 1\le\bigg(\frac{\text{Cov}(X,Y)}{\sigma_X\sigma_Y}\bigg)^2=\rho_{X,Y}^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(\therefore -1\le\rho_{X,Y}\le1\)</span></p>
+</div>
+</div>
+<div class="section" id="discussion">
+<h3>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h3>
+<p>The Pearson correlation coefficient plays an important part in the interpretation of linear regression, so I will defere a more detailed discussion of <span class="math notranslate nohighlight">\(r_{xy}^2\)</span> to a future notebook.</p>
+<p>Since the correlation between two covariates or random variables is bounded between <span class="math notranslate nohighlight">\([-1,1]\)</span>, this can offer a measure of relatedness between two variables that may be easier to interpret than its cousin, the corvariance.</p>
+<p>Similar to covariance, if two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, part of a joint distribution <span class="math notranslate nohighlight">\((X,Y)\)</span> with variances <span class="math notranslate nohighlight">\(\text{Var}(X)\)</span> and <span class="math notranslate nohighlight">\(\text{Var}(Y)\)</span>, are independent, then <span class="math notranslate nohighlight">\(\text{Corr}(X,Y)=0\)</span>. However, if two variables are uncorrelated, we <strong>cannot</strong> say whether <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent. The mathematical discussion to show this fact is nearly identical to the case of covariance.</p>
+</div>
+</div>
+<div class="section" id="indicator-functions">
+<h2>Indicator Functions<a class="headerlink" href="#indicator-functions" title="Permalink to this headline">¶</a></h2>
+<p>Given a subset <span class="math notranslate nohighlight">\(A\)</span> of set <span class="math notranslate nohighlight">\(X\)</span> (i.e. <span class="math notranslate nohighlight">\(A\subseteq X\)</span>), the indicator function <span class="math notranslate nohighlight">\(\mathbb{1}_A\)</span> is a mapping defined below.</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{1}:X\to\{0,1\}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbb{1}_A(x)=\begin{cases}1  &amp; if\ x\in A \\ 0 &amp; if\ x\notin A \end{cases}\end{split}\]</div>
+<div class="section" id="indicator-function-for-intersection">
+<h3>Indicator Function for Intersection<a class="headerlink" href="#indicator-function-for-intersection" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\forall A,B\in X\)</span>, <span class="math notranslate nohighlight">\(\forall\alpha\in X\)</span>, <span class="math notranslate nohighlight">\(\mathbb{1}_{A\cap B}(\alpha)=\min\{\mathbb{1}_A(\alpha),\mathbb{1}_B(\alpha)\}=\mathbb{1}_A(\alpha)\cdot\mathbb{1}_B(\alpha)\)</span></p>
+<div class="section" id="id12">
+<h4>Proof<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate nohighlight">\(\forall\alpha\in X\)</span>, <span class="math notranslate nohighlight">\(\mathbb{1}_{A\cap B}(\alpha)=\begin{cases}1  &amp; if\ \alpha\in A\cap B \\ 0 &amp; if\ \alpha\notin A\cap B \end{cases}\)</span></p>
+<p>There are four cases to examine depending on whether a given element <span class="math notranslate nohighlight">\(\alpha\in X\)</span> is in <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<ol class="simple">
+<li><p>If  <span class="math notranslate nohighlight">\(\alpha\in A\)</span> and <span class="math notranslate nohighlight">\(\alpha\in B\)</span>, then <span class="math notranslate nohighlight">\(\alpha\in A\cap B\)</span>.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\mathbb{1}_{A\cap B}(\alpha)=1\]</div>
+<div class="math notranslate nohighlight">
+\[\min\{\mathbb{1}_A(\alpha),\mathbb{1}_B(\alpha)\}=\min\{1,1\}=1\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbb{1}_A(\alpha)\cdot\mathbb{1}_B(\alpha)=1\cdot 1=1\]</div>
+<ol class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(\alpha\in A\)</span> and <span class="math notranslate nohighlight">\(\alpha\notin B\)</span>, then <span class="math notranslate nohighlight">\(\alpha\notin A\cap B\)</span>
+$<span class="math notranslate nohighlight">\(\mathbb{1}_{A\cap B}(\alpha)=0\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\min\{\mathbb{1}_A(\alpha),\mathbb{1}_B(\alpha)\}=\min\{1,0\}=0\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\mathbb{1}_A(\alpha)\cdot\mathbb{1}_B(\alpha)=1\cdot 0=0\)</span>$</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\alpha\notin A\)</span> and <span class="math notranslate nohighlight">\(\alpha\in B\)</span>, then <span class="math notranslate nohighlight">\(\alpha\notin A\cap B\)</span>
+$<span class="math notranslate nohighlight">\(\mathbb{1}_{A\cap B}(\alpha)=0\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\min\{\mathbb{1}_A(\alpha),\mathbb{1}_B(\alpha)\}=\min\{0,1\}=0\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\mathbb{1}_A(\alpha)\cdot\mathbb{1}_B(\alpha)=0\cdot 1=0\)</span>$</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\alpha\notin A\)</span> and <span class="math notranslate nohighlight">\(\alpha\notin B\)</span>, then <span class="math notranslate nohighlight">\(\alpha\notin A\cap B\)</span>
+$<span class="math notranslate nohighlight">\(\mathbb{1}_{A\cap B}(\alpha)=0\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\min\{\mathbb{1}_A(\alpha),\mathbb{1}_B(\alpha)\}=\min\{0,0\}=0\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\mathbb{1}_A(\alpha)\cdot\mathbb{1}_B(\alpha)=0\cdot 0=0\)</span>$</p></li>
+</ol>
+<p><span class="math notranslate nohighlight">\(\therefore\forall A,B\subseteq X\)</span>, <span class="math notranslate nohighlight">\(\forall\alpha\in X\)</span> <span class="math notranslate nohighlight">\(\mathbb{1}_{A\cap B}(\alpha)=\min\{\mathbb{1}_A(\alpha),\mathbb{1}_B(\alpha)\}=\mathbb{1}_A(\alpha)\cdot\mathbb{1}_B(\alpha)\)</span></p>
+</div>
+</div>
+<div class="section" id="indicator-function-for-union">
+<h3>Indicator Function for Union<a class="headerlink" href="#indicator-function-for-union" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\forall A,B\in X\)</span>, <span class="math notranslate nohighlight">\(\forall\alpha\in X\)</span>, <span class="math notranslate nohighlight">\(\mathbb{1}_{A\cup B}(\alpha)=\max\{\mathbb{1}_A(\alpha),\mathbb{1}_B(\alpha)\}=\mathbb{1}_A(\alpha)+\mathbb{1}_B(\alpha)-\mathbb{1}_A(\alpha)\cdot\mathbb{1}_B(\alpha)\)</span></p>
+<div class="section" id="id13">
+<h4>Proof<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate nohighlight">\(\forall\alpha\in X\)</span>, <span class="math notranslate nohighlight">\(\mathbb{1}_{A\cup B}(\alpha)=\begin{cases}1  &amp; if\ \alpha\in A\cup B \\ 0 &amp; if\ \alpha\notin A\cup B \end{cases}\)</span> <br>
+There are four cases to examine depending on whether a given element <span class="math notranslate nohighlight">\(\alpha\in X\)</span> is in <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span>. <br></p>
+<ol class="simple">
+<li><p>If  <span class="math notranslate nohighlight">\(\alpha\in A\)</span> and <span class="math notranslate nohighlight">\(\alpha\in B\)</span>, then <span class="math notranslate nohighlight">\(\alpha\in A\cup B\)</span>. <br>
+$<span class="math notranslate nohighlight">\(\mathbb{1}_{A\cup B}(\alpha)=1\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\max\{\mathbb{1}_A(\alpha),\mathbb{1}_B(\alpha)\}=\max\{1,1\}=1\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\mathbb{1}_A(\alpha)+\mathbb{1}_B(\alpha)-\mathbb{1}_A(\alpha)\cdot\mathbb{1}_B(\alpha)=1+1-1\cdot 1=1\)</span>$</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\alpha\in A\)</span> and <span class="math notranslate nohighlight">\(\alpha\notin B\)</span>, then <span class="math notranslate nohighlight">\(\alpha\in A\cup B\)</span>
+$<span class="math notranslate nohighlight">\(\mathbb{1}_{A\cup B}(\alpha)=1\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\max\{\mathbb{1}_A(\alpha),\mathbb{1}_B(\alpha)\}=\max\{1,0\}=1\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\mathbb{1}_A(\alpha)+\mathbb{1}_B(\alpha)-\mathbb{1}_A(\alpha)\cdot\mathbb{1}_B(\alpha)=1+0-1\cdot 0=1\)</span>$</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\alpha\notin A\)</span> and <span class="math notranslate nohighlight">\(\alpha\in B\)</span>, then <span class="math notranslate nohighlight">\(\alpha\in A\cup B\)</span>
+$<span class="math notranslate nohighlight">\(\mathbb{1}_{A\cup B}(\alpha)=1\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\max\{\mathbb{1}_A(\alpha),\mathbb{1}_B(\alpha)\}=\max\{0,1\}=1\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\mathbb{1}_A(\alpha)+\mathbb{1}_B(\alpha)-\mathbb{1}_A(\alpha)\cdot\mathbb{1}_B(\alpha)=0+1-0\cdot 1=1\)</span>$</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\alpha\notin A\)</span> and <span class="math notranslate nohighlight">\(\alpha\notin B\)</span>, then <span class="math notranslate nohighlight">\(\alpha\notin A\cup B\)</span>
+$<span class="math notranslate nohighlight">\(\mathbb{1}_{A\cup B}(\alpha)=0\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\max\{\mathbb{1}_A(\alpha),\mathbb{1}_B(\alpha)\}=\max\{0,0\}=0\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\mathbb{1}_A(\alpha)+\mathbb{1}_B(\alpha)-\mathbb{1}_A(\alpha)\cdot\mathbb{1}_B(\alpha)=0+0-0\cdot 0=0\)</span>$</p></li>
+</ol>
+<p><span class="math notranslate nohighlight">\(\therefore\forall A,B\in X\)</span>, <span class="math notranslate nohighlight">\(\forall\alpha\in X\)</span> <span class="math notranslate nohighlight">\(\mathbb{1}_{A\cup B}(\alpha)=\max\{\mathbb{1}_A(\alpha),\mathbb{1}_B(\alpha)\}=\mathbb{1}_A(\alpha)+\mathbb{1}_B(\alpha)-\mathbb{1}_A(\alpha)\cdot\mathbb{1}_B(\alpha)\)</span></p>
+</div>
+</div>
+<div class="section" id="indicator-function-of-complement">
+<h3>Indicator Function of Complement<a class="headerlink" href="#indicator-function-of-complement" title="Permalink to this headline">¶</a></h3>
+<p>Given an event <span class="math notranslate nohighlight">\(A\subseteq\Omega\)</span> and its complement <span class="math notranslate nohighlight">\(A^c=\Omega\backslash A\)</span>, <span class="math notranslate nohighlight">\(\forall\omega\in A^c\)</span>, <span class="math notranslate nohighlight">\(\mathbb{1}_{A^c}=1-\mathbb{1}_A(\omega)\)</span></p>
+<div class="section" id="id14">
+<h4>Proof<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate nohighlight">\(\forall\omega\in\Omega\)</span>, if <span class="math notranslate nohighlight">\(\omega\in A\)</span>, then by definition <span class="math notranslate nohighlight">\(\omega\notin A\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{1}_{A^c}(\omega)=0\]</div>
+<div class="math notranslate nohighlight">
+\[1-\mathbb{1}_A(\omega)=1-1=0\]</div>
+<p>Now suppose <span class="math notranslate nohighlight">\(\omega\notin A\)</span>, which means that <span class="math notranslate nohighlight">\(\omega\in A\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{1}_{A^c}(\omega)=1\]</div>
+<div class="math notranslate nohighlight">
+\[1-\mathbb{1}_A(\omega)=1-0=1\]</div>
+</div>
+</div>
+<div class="section" id="powers-of-indicator-function">
+<h3>Powers of Indicator Function<a class="headerlink" href="#powers-of-indicator-function" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\forall n\in\mathbb{R}\backslash 0\)</span>, given an event <span class="math notranslate nohighlight">\(A\subseteq\Omega\)</span>, <span class="math notranslate nohighlight">\(\forall\omega\in A\)</span>, <span class="math notranslate nohighlight">\(\big(\mathbb{1}_A(\omega)\big)^n=\mathbb{1}_A(\omega)\)</span></p>
+<div class="section" id="id15">
+<h4>Proof<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<p>For some <span class="math notranslate nohighlight">\(\omega\in\Omega\)</span>, suppose <span class="math notranslate nohighlight">\(\omega\in A\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\big(\mathbb{1}_A(\omega)\big)^n=1^n=1=\mathbb{1}_A(\omega)\]</div>
+<p>Now suppose <span class="math notranslate nohighlight">\(\omega\notin A\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\big(\mathbb{1}_A(\omega)\big)^n=0^n=0=\mathbb{1}_A(\omega)\]</div>
+</div>
+</div>
+<div class="section" id="mean-variance-and-covariance-of-indicator-function">
+<h3>Mean, Variance and Covariance of Indicator Function<a class="headerlink" href="#mean-variance-and-covariance-of-indicator-function" title="Permalink to this headline">¶</a></h3>
+<p>For the following discussion, assume we are given a <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_space">probability space</a> <span class="math notranslate nohighlight">\((\Omega,\cal{F},P)\)</span> and an event <span class="math notranslate nohighlight">\(A\in\cal{F}\)</span>. The indicator function <span class="math notranslate nohighlight">\(\mathbb{1}_A\)</span> is defined below for the probability space. <br>
+$<span class="math notranslate nohighlight">\(\mathbb{1}_A:\Omega\to\mathbb{R}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\mathbb{1}_A(\omega)=\begin{cases}1 &amp; \omega\in A \\ 0 &amp; \omega\notin A\end{cases}\)</span>$</p>
+<div class="section" id="id16">
+<h4>Mean<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}[\mathbb{1}_A]=P(A)\)</span></p>
+<div class="section" id="id17">
+<h5>Proof<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h5>
+<p>In case you decide to peruse the proof below, I want to make an important distinction between functions <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(P\)</span> in the context of probability spaces. While <span class="math notranslate nohighlight">\(P\)</span> is a function that maps a given event <span class="math notranslate nohighlight">\(E\in\cal{F}\)</span> to <span class="math notranslate nohighlight">\([0,1]\)</span>, <span class="math notranslate nohighlight">\(p\)</span> is a function that maps a given outcome <span class="math notranslate nohighlight">\(\omega\in\Omega\)</span> to <span class="math notranslate nohighlight">\([0,1]\)</span>.</p>
+<p><strong>Lemma: Given an event <span class="math notranslate nohighlight">\(A\subseteq \Omega\)</span>, <span class="math notranslate nohighlight">\(P(A)=\sum\limits_{\omega\in A} p(\omega)\)</span></strong></p>
+<p>Given an element <span class="math notranslate nohighlight">\(\omega\in\Omega\)</span> and an event <span class="math notranslate nohighlight">\(E_\omega=\{\omega\}\)</span>, <span class="math notranslate nohighlight">\(P(E_\omega)=p(\omega)\)</span>. <span class="math notranslate nohighlight">\(\forall\omega\in A\)</span>, we define the disjoint events <span class="math notranslate nohighlight">\(E_\omega\)</span> (the events do not share any outcomes and are thus disjoint) and then employ the <span class="math notranslate nohighlight">\(\sigma\)</span>-additivity axiom of probability.</p>
+<div class="math notranslate nohighlight">
+\[P(A)=P\bigg(\bigcup\limits_{\omega\in A}E_\omega\bigg)=\sum\limits_{\omega\in A}P(E_\omega)=\sum\limits_{\omega\in A}p(\omega)\]</div>
+<p><strong>Claim: <span class="math notranslate nohighlight">\(\forall\omega\in\Omega\)</span>,  <span class="math notranslate nohighlight">\(\mathbb{E}[\mathbb{1}_A]=P(A)\)</span></strong></p>
+<p>We will use the fact that <span class="math notranslate nohighlight">\(\forall\omega\in\Omega\)</span>, <span class="math notranslate nohighlight">\(\omega\in A\)</span> or <span class="math notranslate nohighlight">\(\omega\notin A\)</span> in the proof below.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\mathbb{E}[\mathbb{1}_A] &amp;= \sum\limits_{\omega\in\Omega}p(\omega)\mathbb{1}_A(\omega) \\
+&amp;=\sum\limits_{\omega_i\in A}p(\omega_i)\mathbb{1}_A(\omega_i)+\sum\limits_{\omega_j\notin A}p(\omega_j)\mathbb{1}_A(\omega_j) \\
+&amp;=\sum\limits_{\omega_i\in A}p(\omega_i)\cdot 1+\sum\limits_{\omega_i\notin A}p(\omega_i)\cdot 0 \\
+&amp;=\sum\limits_{\omega_i\in A}p(\omega_i) \\
+&amp;=P(A)
+\end{aligned}\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="id18">
+<h4>Variance<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate nohighlight">\(\text{Var}(\mathbb{1}_A)=P(A)(1-P(A))\)</span></p>
+<div class="section" id="id19">
+<h5>Proof<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h5>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\text{Var}(\mathbb{1}_A)&amp;=\mathbb{E}\bigg[\big(\mathbb{1}_A-\mathbb{E}[\mathbb{1}_A]\big)^2\bigg]\\
+&amp;=\mathbb{E}\bigg[\big(\mathbb{1}_A-P(A)\big)^2\bigg] \\
+&amp;=\mathbb{E}\big[\mathbb{1}_A^2-2P(A)\mathbb{1}_A+P(A)^2\big] \\
+&amp;=\mathbb{E}\big[\mathbb{1}_A^2\big]-\mathbb{E}\big[2P(A)\mathbb{1}_A\big]+\mathbb{E}\big[P(A)^2\big] \\
+&amp;=\mathbb{E}[\mathbb{1}_A]-2P(A)\mathbb{E}[\mathbb{1}_A]+P(A)^2 \\
+&amp;=P(A)-2P(A)^2+P(A)^2=P(A)-P(A)^2=P(A)(1-P(A))
+\end{aligned}\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="id20">
+<h4>Covariance<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
+<p>Given two events <span class="math notranslate nohighlight">\(A,B\subseteq\Omega\)</span>, <span class="math notranslate nohighlight">\(\text{Cov}\big(1_A,\mathbb{1}_B\big)=P(A\cap B)-P(A)P(B)\)</span></p>
+<div class="section" id="id21">
+<h5>Proof<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h5>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\text{Cov}\big(\mathbb{1}_A,\mathbb{1}_B\big)&amp;=\mathbb{E}\bigg[\big(\mathbb{1}_A-\mathbb{E}[\mathbb{1}_A]\big)\big(\mathbb{1}_B-\mathbb{E}[\mathbb{1}_B]\big)\bigg] \\
+&amp;=\mathbb{E}\bigg[\big(\mathbb{1}_A-P(A)\big)\big(\mathbb{1}_B-P(B)\big)\bigg] \\
+&amp;=\mathbb{E}\bigg[\mathbb{1}_A\cdot\mathbb{1}_B -\mathbb{1}_A P(B)-P(A)\mathbb{1}_B + P(A)P(B)\bigg] \\
+&amp;=\mathbb{E}\big[\mathbb{1}_A\cdot\mathbb{1}_B\big] -\mathbb{E}\big[\mathbb{1}_A P(B)\big]-\mathbb{E}\big[P(A)\mathbb{1}_B\big] + \mathbb{E}\big[P(A)P(B)\big] \\
+&amp;=\mathbb{E}\big[\mathbb{1}_{A\cap B}\big] -P(B)\mathbb{E}\big[\mathbb{1}_A \big]-P(A)\mathbb{E}\big[\mathbb{1}_B\big] + P(A)P(B) \\
+&amp;=P(A\cap B) -P(A)P(B)-P(A)P(B) + P(A)P(B) \\
+&amp;=P(A\cap B) -P(A)P(B) \\
+\end{aligned}\end{split}\]</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "distilleddata/LearningToDS",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Probability_Basics_II.html" title="previous page">Probability Basics II</a>
+    <a class='right-next' id="next-link" href="Common_Probability_Distributions_Discrete.html" title="next page">Common Probability Distributions: Discrete</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By DistilledData<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

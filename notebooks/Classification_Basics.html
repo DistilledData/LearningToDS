@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classification Basics &#8212; LearningToDS</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Common Probability Distributions: Discrete" href="Common_Probability_Distributions_Discrete.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">LearningToDS</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   LearningToDS
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Probability
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Probability_Basics.html">
+   Probability Basics I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Probability_Basics_II.html">
+   Probability Basics II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Probability_Basics_III.html">
+   Probability Basics III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Common_Probability_Distributions_Discrete.html">
+   Common Probability Distributions: Discrete
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Models
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Classification Basics
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/Classification_Basics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/distilleddata/LearningToDS/main?urlpath=tree/notebooks/notebooks/Classification_Basics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/distilleddata/LearningToDS/blob/main/notebooks/notebooks/Classification_Basics.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-background-for-supervised-learning">
+   Some Background for Supervised Learning
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#confusion-matrix">
+     Confusion Matrix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aside-type-i-and-type-ii-error">
+     Aside: Type I and Type II Error
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#measuring-model-effectiveness">
+     Measuring Model Effectiveness
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#precision-and-recall">
+       Precision and Recall
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f-beta-score">
+       <span class="math notranslate nohighlight">
+        \(F_\beta\)
+       </span>
+       Score
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p>Author: <a class="reference external" href="https://github.com/DistilledData">DistilledData</a></p>
+<p>\tableofcontents
+\pagebreak</p>
+<div class="section" id="classification-basics">
+<h1>Classification Basics<a class="headerlink" href="#classification-basics" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial will focus on describing the basics of classification from a statistics/data science perspective. We will use scikit-learn for the toy dataset and for the algorithms that construct the models. <br>
+This notebook will focus on basic theory for classification problems. Since the model construction requires further considerations concerning the model and related theoretical considerations, we will leave the exercise of constructing a model to another notebook.</p>
+<div class="section" id="some-background-for-supervised-learning">
+<h2>Some Background for Supervised Learning<a class="headerlink" href="#some-background-for-supervised-learning" title="Permalink to this headline">¶</a></h2>
+<p>In general, we have some information that lives in feature space <span class="math notranslate nohighlight">\(\cal{X}\)</span>. We want to use this information to predict some outcome that lives in a outcome space <span class="math notranslate nohighlight">\(\cal{Y}\)</span>. In order to construct our prediction, we use scary math that maps our feature space to some intermediate action space <span class="math notranslate nohighlight">\(\cal{A}\)</span> (we use this intermediate space because not all models can directly predict <span class="math notranslate nohighlight">\(\cal{Y}\)</span> and we may need to use proxies).</p>
+<p>For our formalization, we will consider the most basic form of classification: binary classification (just because it is basic, does not mean it is easy!). Common examples from everyday life include spam filters (i.e. spam/not spam), pregnancy tests, and churn prediction.</p>
+<div class="section" id="confusion-matrix">
+<h3>Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="s2">&quot;../images/SimpleConfusionMatrix.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Classification_Basics_8_0.png" src="../_images/Classification_Basics_8_0.png" />
+</div>
+</div>
+<p>Binary classification allows us to construct some metrics that help us determine whether our models are useful. The matrix above (also called a confusion matrix) demonstrates the four possibilities for the accuracy for the model: <br><br></p>
+<ol class="simple">
+<li><p>The model predicts the positive class for a given data point <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(x_i\)</span> is actually in the positive class (e.g. we predict a pregnant woman is pregnant or an e-mail for male enhancement is correctly specified as spam). This is also called a True Positive (TP). <br><br></p></li>
+<li><p>The model predicts the positive class for a given data point <span class="math notranslate nohighlight">\(x_i\)</span>, but <span class="math notranslate nohighlight">\(x_i\)</span> is actually in the negative class (e.g. we predict a non-pregnant woman or man is pregnant, or we classify an e-mail from your boss incorrectly as spam). This is also called a False Positive (FP). This is sometimes also referred to as Type I error. <br><br></p></li>
+<li><p>The model predicts the negative class for a given data point <span class="math notranslate nohighlight">\(x_i\)</span>, but <span class="math notranslate nohighlight">\(x_i\)</span> is actually in the positive class (e.g. we predict a pregnant woman is not pregnant or that an e-mail for male enhancement is incorrectly classified as not spam). This is also called a False Negative (FN). This is sometimes also referred to as Type II error. <br><br></p></li>
+<li><p>The model predicts the negative class for a given data point <span class="math notranslate nohighlight">\(x_i\)</span>, and <span class="math notranslate nohighlight">\(x_i\)</span> is actually in the negative class (e.g. we predict a non-pregnant woman or man is not pregnant, or we classify an e-mail from your boss correctly as not spam). This is also called True Negative (TN)</p></li>
+</ol>
+<p>After seeing the above, we can start to appreciate why pure accuracy measures (<span class="math notranslate nohighlight">\(\frac{TP}{TP+FP+FN_TN}\)</span>) are often not a good metric of model performance. Accuracy does not give us any information about false positives or false negatives, which may be costly depending on the particular application. For instance, we may prefer a medical test that screens for cancer gives a false positive (the model says a healthy person has cancer) rather than false negative (a person with cancer is told they do not have cancer) because further testing would rule out that the person actually has cancer. Meanwhile, for spam classifiers, we may prefer that an agent classifies an spam e-mail as non-spam (false negative) rather than classify an important e-mail as spam (false positive).</p>
+<p>Exercise: Can you think of additional examples where a false positive or false negative may be preferred?<br><br></p>
+</div>
+<div class="section" id="aside-type-i-and-type-ii-error">
+<h3>Aside: Type I and Type II Error<a class="headerlink" href="#aside-type-i-and-type-ii-error" title="Permalink to this headline">¶</a></h3>
+<p>In frequentist statistics, Type I error is the probability of rejecting a given null hypothesis <span class="math notranslate nohighlight">\(\cal{H}\)</span> when the null hypothesis is in fact true. With some gross simplification and taking the null hypothesis for our binary classification problem to be “is in the negative class”, we can think of type I error as rejecting the null hypothesis (e.g. we claim the data <span class="math notranslate nohighlight">\(x_i\)</span> is in the positive class) when the null hypothesis is true (e.g. the data is in fact in the negative class), which corresponds to a false positive. <br>
+Meanwhile, Type II error is the probability of not rejecting a given null hypothesis <span class="math notranslate nohighlight">\(\cal{H}\)</span> when the null hypothesis is false. If we use similar logic to the above, we see that this is approximately equivalent to claiming that the data <span class="math notranslate nohighlight">\(x_i\)</span> is in the negative class when it is in fact in the positive class, which corresponds to a false negative.</p>
+<p>The above aside is mentioned because data scientists in the wild may refer to false positives and false negatives as type I and type II errors, respectively.</p>
+</div>
+<div class="section" id="measuring-model-effectiveness">
+<h3>Measuring Model Effectiveness<a class="headerlink" href="#measuring-model-effectiveness" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="precision-and-recall">
+<h4>Precision and Recall<a class="headerlink" href="#precision-and-recall" title="Permalink to this headline">¶</a></h4>
+<p>If accuracy alone is not an ideal metric to measure model performance, what other metrics should we use? While an answer may be dependent on the specific question and mathematical model under consideration, there are some common metrics that are used in the data science community that attempt to measure false positives and false negatives: recall and precision.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="s2">&quot;../images/Recall.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Classification_Basics_18_0.png" src="../_images/Classification_Basics_18_0.png" />
+</div>
+</div>
+<p>Recall measures the percentage of data <span class="math notranslate nohighlight">\(x_i\)</span> in the positive class that is correctly predicted as the positive class (<span class="math notranslate nohighlight">\(\frac{TP}{TP+FN}\)</span>). For our pregnancy test, this would be the percentage of pregnant women we told were pregnant. For our spam filter, this would be what percentage of spam e-mails did we correctly predict as spam.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="s2">&quot;../images/Precision.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Classification_Basics_20_0.png" src="../_images/Classification_Basics_20_0.png" />
+</div>
+</div>
+<p>Precision measures the percentage of data <span class="math notranslate nohighlight">\(x_i\)</span> that the model predicts as in the positive class that is indeed in the positive class (<span class="math notranslate nohighlight">\(\frac{TP}{TP+FP}\)</span>). For our pregnancy test this would be the percentage of women whom tested positive were actually pregnant. For our spam filter, this would be the percentage of e-mails in the spam folder were actually spam.</p>
+<p>Exercise: Can you think of instances where recall or precision is more important than the other metric? <br><br></p>
+<p>Exercise: Can you think of similar metrics for negatives? Can you think of a business value for these metrics? <br><br></p>
+</div>
+<div class="section" id="f-beta-score">
+<h4><span class="math notranslate nohighlight">\(F_\beta\)</span> Score<a class="headerlink" href="#f-beta-score" title="Permalink to this headline">¶</a></h4>
+<p>While recall and precision are useful, we often want a single summary statistic that conveys the performance of the model, taking into account possible differential preference for one metric over another. Enter the <span class="math notranslate nohighlight">\(F_\beta\)</span> score, a magical metric borrowed from information theory that is a harmonic mean between recall and precision. The <span class="math notranslate nohighlight">\(\beta\)</span> term weights the precision and recall according to the particular application. In particular, <span class="math notranslate nohighlight">\(F_\beta\)</span> measures “the effectivenesss of retrieval with respect to a user who attaches <span class="math notranslate nohighlight">\(\beta\)</span> times as much importance to recall as precision” (Van Rijsbergen, “Information Retrieval”). We define two formulas for <span class="math notranslate nohighlight">\(F_\beta\)</span> below: one in terms of TP, FP, FN, and TN; and one in terms of precision and recall.</p>
+<div class="math notranslate nohighlight">
+\[F_\beta=(1+\beta^2)\frac{\text{TP}}{(1+\beta^2)\cdot\text{TP}+\beta^2\cdot\text{FN}+\text{FP}}\]</div>
+<div class="math notranslate nohighlight">
+\[F_\beta=(1+\beta^2)\frac{\text{precision}\cdot\text{recall}}{\beta^2\cdot\text{precision}+\text{recall}}\]</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "distilleddata/LearningToDS",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Common_Probability_Distributions_Discrete.html" title="previous page">Common Probability Distributions: Discrete</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By DistilledData<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
