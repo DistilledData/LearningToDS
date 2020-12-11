@@ -11,6 +11,7 @@ done
 
 #copy notebook files
 notebook_dir=${book_dir}/notebooks
+mkdir ${notebook_dir} || true
 source_dir=notebooks
 for file in Probability_Basics.ipynb Probability_Basics_II.ipynb Probability_Basics_III.ipynb Common_Probability_Distributions_Discrete.ipynb
 do
