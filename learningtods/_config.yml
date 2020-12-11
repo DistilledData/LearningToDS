@@ -14,11 +14,15 @@ only_build_toc_files: true
 
 # Information about where the book exists on the web
 repository:
-  url                              : https://github.com/distilleddata/LearningToDS/notebooks
+  url                              : https://github.com/distilleddata/LearningToDS
+  path_to_book                     : notebooks
+  branch                           : main
   binder_repo_branch               : "main"  # The branch on which your textbook is hosted.
 # Binder link settings
-  use_binder_button                : true  # If 'true', add a binder button for interactive links
-  
+  use_binder_button                : true  # If 'true', add a binder button for interactive links  
 # Configure your Binder links, such as the URL of the BinderHub.
 launch_buttons:
-  binderhub_url             : https://mybinder.org
+  binderhub_url                    : https://mybinder.org
+  colab_url                        : "https://colab.research.google.com"
+  thebe                            : true
+  

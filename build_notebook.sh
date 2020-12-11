@@ -18,4 +18,4 @@ do
 done
 popd
 
-ghp-import -n -p -f ${book_dir}/_build/html
+#ghp-import -n -p -f ${book_dir}/_build/html
