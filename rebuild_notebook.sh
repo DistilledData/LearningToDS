@@ -17,8 +17,8 @@ git rm -r docs
 git rm -r jupyter_execute
 git commit -m "remove stale webpages"
 
-cp -r _build/html docs
-cp -r _build/jupyter_execute .
+cp -r learningtods/_build/html docs
+cp -r learningtods/_build/jupyter_execute .
 git add html
 git add jupyter_execute
 git commit -m "add current webpage"
