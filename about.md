@@ -15,7 +15,7 @@ Probability knowledge is foundational to data science and is required before one
 2. Probability_Basics_II
 3. Probability_Basics_III
 4. Common_Probability_Distributions
-5. Intermediate_Probability
+
 
 ## Statistics
 Often called the inverse of probability, statistical understanding is required before one starts biting into the juicy statistical models.
@@ -23,4 +23,4 @@ Often called the inverse of probability, statistical understanding is required b
 ## Supervised Learning Models
 These are common models that are used in the wild for supervised learning tasks.
 1. Classification_Basics
-2. Classification_with_Logistic_Regression
+
