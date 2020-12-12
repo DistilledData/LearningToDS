@@ -582,11 +582,7 @@
         
               <div>
                 
-  <p>Author: <a class="reference external" href="https://github.com/DistilledData">DistilledData</a></p>
-<p>\setcounter{tocdepth}{5}
-\tableofcontents
-\pagebreak</p>
-<div class="section" id="common-probability-distributions-discrete">
+  <div class="section" id="common-probability-distributions-discrete">
 <h1>Common Probability Distributions: Discrete<a class="headerlink" href="#common-probability-distributions-discrete" title="Permalink to this headline">¶</a></h1>
 <p>This notebook will introduce some common discrete probability distributions that are used by data scientists and statisticians. Whenever someone uses these distributions to describe a complex population, such as subscribers at a company or the suppliers in a complex market, in general they are not claiming the distribution perfectly describes the population. In most cases, they are making simplifying assumptions in order to create a model that is easier to interpret, and can take advantage of the well-known mathematical properties for a given distribution.</p>
 <p>This is not meant to be a comprehensive list of every discrete distribution in existence. Rather, this notebook will present a sampling of some of the more popular distributions.</p>
@@ -700,7 +696,6 @@
 <div class="section" id="mode">
 <h3>Mode<a class="headerlink" href="#mode" title="Permalink to this headline">¶</a></h3>
 <p>Since all values have the same probability, any value in the  support is a valid mode.</p>
-<p>\pagebreak</p>
 </div>
 <div class="section" id="example-rolling-a-die">
 <h3>Example: Rolling a Die<a class="headerlink" href="#example-rolling-a-die" title="Permalink to this headline">¶</a></h3>
@@ -730,7 +725,6 @@
 </div>
 </div>
 </div>
-<p>\pagebreak</p>
 <p><strong>PMF:</strong> <span class="math notranslate nohighlight">\(\forall k\in\{1,2,3,5,6\}\)</span> <span class="math notranslate nohighlight">\(p_{U}(k)=P(U=k)=\frac{1}{6}\)</span></p>
 <p><strong>Graph for PMF</strong></p>
 <div class="cell docutils container">
@@ -751,7 +745,6 @@
 <img alt="_images/Common_Probability_Distributions_Discrete_49_1.png" src="_images/Common_Probability_Distributions_Discrete_49_1.png" />
 </div>
 </div>
-<p>\pagebreak</p>
 <p><strong>CDF:</strong> <span class="math notranslate nohighlight">\(\forall x\in\mathbb{R}\)</span> <span class="math notranslate nohighlight">\(F_{U}(x)=P(U\le x)=\frac{\lfloor x\rfloor - 1 + 1}{6}=\frac{\lfloor x \rfloor}{6}\)</span></p>
 <p><strong>Graph for CDF</strong></p>
 <div class="cell docutils container">
@@ -796,7 +789,6 @@
 <p><strong>Median:</strong> <span class="math notranslate nohighlight">\(\frac{1+6}{2}=3.5\)</span></p>
 <p><strong>Variance:</strong> <span class="math notranslate nohighlight">\(\frac{(6-1+1)^2-1}{12}=\frac{35}{12}=2.9177\)</span></p>
 <p><strong>Mode:</strong> 1, 2, 3, 4, 5, 6</p>
-<p>\pagebreak</p>
 </div>
 </div>
 <div class="section" id="bernoulli-distribution">
@@ -899,7 +891,6 @@
 <p><strong>median:</strong> 1</p>
 <p><strong>variance:</strong> 0.16</p>
 <p><strong>mode:</strong> 1</p>
-<p>\pagebreak</p>
 </div>
 </div>
 <div class="section" id="binomial-distribution">
@@ -947,7 +938,6 @@
 <h4>Proof<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
 <p>Given distribution <span class="math notranslate nohighlight">\(X\sim B(n,p)\)</span>, let <span class="math notranslate nohighlight">\(X=X_1+\cdots+X_n\)</span> where <span class="math notranslate nohighlight">\(X_i\)</span> are independent Bernoulli distributions. Since the <span class="math notranslate nohighlight">\(X_i\)</span> are independent, <span class="math notranslate nohighlight">\(\forall i\ne j\)</span> <span class="math notranslate nohighlight">\(\text{Cov}(X_i,X_j)=0\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\implies\text{Var}(X)=\sum\limits_{i=1}^n\text{Var}(X_i)=\sum\limits_{i=1}^np(p-1)=np(p-1)\)</span></p>
-<p>\pagebreak</p>
 </div>
 </div>
 <div class="section" id="example-10-coin-flips">
@@ -992,7 +982,6 @@
 </div>
 </div>
 </div>
-<p>\pagebreak</p>
 <p><strong>PMF:</strong> Given distribution <span class="math notranslate nohighlight">\(X\sim B(n,p)\)</span>, <span class="math notranslate nohighlight">\(\forall k\in\{0,\cdots,10\}\)</span>, <span class="math notranslate nohighlight">\(f_{\cal{B}}(k)=P(X=k)={10\choose k}0.8^k0.2^{10-k}\)</span></p>
 <p><strong>Graph for PMF</strong></p>
 <div class="cell docutils container">
@@ -1014,7 +1003,6 @@
 <img alt="_images/Common_Probability_Distributions_Discrete_116_1.png" src="_images/Common_Probability_Distributions_Discrete_116_1.png" />
 </div>
 </div>
-<p>\pagebreak</p>
 <p><strong>CDF:</strong> <span class="math notranslate nohighlight">\(\forall x\in\mathbb{R}\)</span> <span class="math notranslate nohighlight">\(F_{\cal{B}}(x)=P(X\le x)=\sum\limits_{i=1}^{\lfloor x\rfloor}{10\choose i}0.8^i0.2^{10-i}\)</span></p>
 <p><strong>Graph for CDF</strong></p>
 <div class="cell docutils container">
@@ -1055,7 +1043,6 @@
 </div>
 <p><strong>Mean:</strong> <span class="math notranslate nohighlight">\(\mu=10\cdot0.8=8\)</span></p>
 <p><strong>Variance:</strong> <span class="math notranslate nohighlight">\(10\cdot0.8\cdot0.2=1.6\)</span></p>
-<p>\pagebreak</p>
 </div>
 </div>
 <div class="section" id="poisson-distribution">
@@ -1255,7 +1242,6 @@ f_Y(k)&amp;=P(Y=k)=\sum_{j=0}^kP(X_1 = j &amp; X_2 = k-j)=\sum_{j=0}^kP(X_1=j)P(
 </div>
 </div>
 </div>
-<p>\pagebreak</p>
 <p><strong>PMF:</strong> Given distribution <span class="math notranslate nohighlight">\(X\sim \text{Pois}(10.5)\)</span>, <span class="math notranslate nohighlight">\(\forall k\in\mathbb{N}_0\)</span>, <span class="math notranslate nohighlight">\(f_{\cal{B}}(k)=P(X=k)=\frac{10.5^k e^{-10.5}}{k!}\)</span></p>
 <p><strong>Graph for PMF</strong></p>
 <div class="cell docutils container">
@@ -1277,7 +1263,6 @@ f_Y(k)&amp;=P(Y=k)=\sum_{j=0}^kP(X_1 = j &amp; X_2 = k-j)=\sum_{j=0}^kP(X_1=j)P(
 <img alt="_images/Common_Probability_Distributions_Discrete_178_1.png" src="_images/Common_Probability_Distributions_Discrete_178_1.png" />
 </div>
 </div>
-<p>\pagebreak</p>
 <p><strong>CDF:</strong> <span class="math notranslate nohighlight">\(\forall x\in\mathbb{R}\)</span> <span class="math notranslate nohighlight">\(F_{\cal{B}}(x)=P(X\le x)=e^{-10.5}\sum\limits_{i=1}^{k}\frac{10.5^k e^{-10.5}}{k!}=\frac{\Gamma(k+1,10.5)}{k!}\)</span></p>
 <p><strong>Graph for CDF</strong></p>
 <div class="cell docutils container">

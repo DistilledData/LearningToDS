@@ -439,10 +439,7 @@
         
               <div>
                 
-  <p>Author: <a class="reference external" href="https://github.com/DistilledData">DistilledData</a></p>
-<p>\tableofcontents
-\pagebreak</p>
-<div class="section" id="probability-basics">
+  <div class="section" id="probability-basics">
 <h1>Probability Basics<a class="headerlink" href="#probability-basics" title="Permalink to this headline">¶</a></h1>
 <p>This notebook is meant to serve as a study guide for the highlights of probability theory that is used in data science. The more mathematically rigorous parts of this notebook require an appreciation of set theory.</p>
 <div class="section" id="some-boring-mathematical-definitions">
@@ -591,21 +588,24 @@
 <h4>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h4>
 <p>A set or collection of items where order matters. For instance, each sequence of characters that form a license plate is a distinct permutation. Another example is choosing a card from a deck of cards without replacement. The sequence of cards that is chosen form a permutation.</p>
 <p>Given a set of n items from which we want to choose k items without replacement in an order-dependent fashion, the number of possibilities is given by</p>
-<p><span class="math notranslate nohighlight">\(P(n,k)=\frac{n!}{(n-k)!}\)</span></p>
+<div class="math notranslate nohighlight">
+\[P(n,k)=\frac{n!}{(n-k)!}\]</div>
 </div>
 <div class="section" id="dealing-with-repeated-elements">
 <h4>Dealing With Repeated Elements<a class="headerlink" href="#dealing-with-repeated-elements" title="Permalink to this headline">¶</a></h4>
 <p>Suppose an item occurs r times in our set. The number of permutations then is given by</p>
-<p><span class="math notranslate nohighlight">\(P(n,k)=\frac{n!}{r!(n-k)!}\)</span></p>
+<div class="math notranslate nohighlight">
+\[P(n,k)=\frac{n!}{r!(n-k)!}\]</div>
 <p>Example: How many different permutations are there of the letters in the word “gooogle”?</p>
-<p>Answer: The word “gooogle” has 7 letters. Since we have three ‘o’s and two ‘g’s, the total number of permutations is given by \frac{7!}{3!2!}$</p>
+<p>Answer: The word “gooogle” has 7 letters. Since we have three ‘o’s and two ‘g’s, the total number of permutations is given by <span class="math notranslate nohighlight">\(\frac{7!}{3!2!}\)</span></p>
 </div>
 </div>
 <div class="section" id="combination">
 <h3>Combination<a class="headerlink" href="#combination" title="Permalink to this headline">¶</a></h3>
 <p>A combination is an order-independent set or collection of items. For instance, if you are choosing three people for a team out of ten people, the order that you choose the people does not matter, just the total number of distinct teams.</p>
 <p>The number of combinations for choosing r items out of n possibilities is given by:</p>
-<p><span class="math notranslate nohighlight">\(C(n,k)=\frac{n!}{k!(n-k)!}\)</span></p>
+<div class="math notranslate nohighlight">
+\[C(n,k)=\frac{n!}{k!(n-k)!}\]</div>
 <p>This corresponds to a permutation where an element has k repeats. This makes intuitive sense because for every distinct permutation of <span class="math notranslate nohighlight">\(k\)</span> items (distinct here means that the count of each individual item type is unique since order does not matter), there are k! arrangements of those items that we consider “repeats”.</p>
 </div>
 <div class="section" id="sums">
@@ -614,7 +614,8 @@
 <h4>Arithmetic Sum<a class="headerlink" href="#arithmetic-sum" title="Permalink to this headline">¶</a></h4>
 <p>An arithmetic sequence is a list of integers <span class="math notranslate nohighlight">\(a_1,a_2,\cdots,a_n\)</span> such that <span class="math notranslate nohighlight">\(\forall i\in\{2,\cdots,n\}\)</span> <span class="math notranslate nohighlight">\(a_i-a_{i-1}=d\)</span> for some <span class="math notranslate nohighlight">\(d\in\mathbb{N}\)</span> where <span class="math notranslate nohighlight">\(d&gt;0\)</span></p>
 <p>If we sum this arithmetic sequence with <span class="math notranslate nohighlight">\(n\)</span> terms, initial element <span class="math notranslate nohighlight">\(a_0\)</span>, last element <span class="math notranslate nohighlight">\(a_n\)</span>, and difference <span class="math notranslate nohighlight">\(d\)</span> between terms, we generate an arithmetic sum whose formula is shown below:</p>
-<p><span class="math notranslate nohighlight">\(S=\frac{(a_0+a_n)n}{2}\)</span></p>
+<div class="math notranslate nohighlight">
+\[S=\frac{(a_0+a_n)n}{2}\]</div>
 </div>
 <div class="section" id="id6">
 <h4>Proof<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
@@ -638,9 +639,10 @@
 <h3>Geometric Sum<a class="headerlink" href="#geometric-sum" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="finite-case">
 <h4>Finite Case<a class="headerlink" href="#finite-case" title="Permalink to this headline">¶</a></h4>
-<p>Given a non-zero number <span class="math notranslate nohighlight">\(a_0\in\mathbb{R}\)</span> and a rate <span class="math notranslate nohighlight">\(r\in\mathbb{R}\)</span> such that <span class="math notranslate nohighlight">\(r\ne 1\)</span>, a finite geometric series with <span class="math notranslate nohighlight">\(n\)</span> terms is a sequence of numbers <span class="math notranslate nohighlight">\(a_0,r\cdot a_0,\cdots,r^{n-1}a_0\)</span>.</p>
+<p>Given a non-zero number <span class="math notranslate nohighlight">\(a_0\in\mathbb{R}\)</span> and a rate <span class="math notranslate nohighlight">\(r\in\mathbb{R}\)</span> such that <span class="math notranslate nohighlight">\(r\ne 1\)</span>, a finite geometric series with <span class="math notranslate nohighlight">\(n\)</span> terms is a sequence of numbers <span class="math notranslate nohighlight">\(a_0,r\cdot a_0,\dots,r^{n-1}\cdot a_0\)</span>.</p>
 <p>The sum of the terms in a geometric series is called a geometric sum. The formula for a geometric sum is given by</p>
-<p><span class="math notranslate nohighlight">\(S_n=\frac{(1-r^n)a_0}{1-r}\)</span></p>
+<div class="math notranslate nohighlight">
+\[S_n=\frac{(1-r^n)a_0}{1-r}\]</div>
 <div class="section" id="id7">
 <h5>Proof<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h5>
 <p>Multiplying both sides of the summation by <span class="math notranslate nohighlight">\(r\)</span> and subtracting the two equations, we obtain</p>
@@ -654,7 +656,8 @@
 <div class="section" id="infinite-case">
 <h4>Infinite Case<a class="headerlink" href="#infinite-case" title="Permalink to this headline">¶</a></h4>
 <p>In order to for a sum of an infinite geometric sum to converge to a value, <span class="math notranslate nohighlight">\(r\)</span> must satisfy <span class="math notranslate nohighlight">\(0\le r&lt;1\)</span>. Given such an <span class="math notranslate nohighlight">\(r\)</span>, the value for the sum becomes</p>
-<p><span class="math notranslate nohighlight">\(S_n=\frac{a_0}{1-r}\)</span></p>
+<div class="math notranslate nohighlight">
+\[S_n=\frac{a_0}{1-r}\]</div>
 <div class="section" id="id8">
 <h5>Proof<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h5>
 <p><span class="math notranslate nohighlight">\(\lim\limits_{n\to\infty}S_n=\lim\limits_{n\to\infty}\frac{(1-r^n)a_0}{1-r}=\lim\limits_{n\to\infty}\frac{a_0}{1-r}+\lim\limits_{n\to\infty}\frac{r^na_0}{1-r}\)</span></p>

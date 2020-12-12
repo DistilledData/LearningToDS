@@ -417,10 +417,7 @@
         
               <div>
                 
-  <p>Author: <a class="reference external" href="https://github.com/DistilledData">DistilledData</a></p>
-<p>\tableofcontents
-\pagebreak</p>
-<div class="section" id="probability-basics-ii">
+  <div class="section" id="probability-basics-ii">
 <h1>Probability Basics II<a class="headerlink" href="#probability-basics-ii" title="Permalink to this headline">¶</a></h1>
 <p>This notebook is intended to serve as a study guide for probability basics that are useful in data science. Building on the content in the “Probability_Basics” notebook, this notebook will focus on random variables and related concepts, such as probability distribution and expectation. A background in set theory, some calculus, and some number theory is required to fully appreciate the boring math definitions in these notebooks.</p>
 <p>For the sake of brevity, I will discuss common probability distributions that data scientists use in glorious combat in a separate notebook.</p>
@@ -486,7 +483,6 @@
 <p>I want to drive home with some math that we are looking for the probability of an event, a subset of <span class="math notranslate nohighlight">\(\Omega\)</span> in this example. While the math below is trivial for most people with some mathematics background, I want to focus on the deconstructing thought process that may be useful for more complicated examples.</p>
 <p>For our specific problem, <span class="math notranslate nohighlight">\(S=\{10\}\subset E\)</span>. Since <span class="math notranslate nohighlight">\(\{\omega\in\Omega|X(\omega)\in S\}=\{\omega=(a,b,c)\in\Omega|X(\omega)=a+b+c\in S=\{10\}\}\)</span>, <span class="math notranslate nohighlight">\(\forall\alpha=(x,y,z)\in\Omega\)</span>, if <span class="math notranslate nohighlight">\(\alpha\in\{\omega\in\Omega|X(\omega)\in S\}\)</span>, then <span class="math notranslate nohighlight">\(x+y+z=10\)</span>. Hence we are looking for the probability of an event <span class="math notranslate nohighlight">\(A\subset\Omega\)</span> such that <span class="math notranslate nohighlight">\(\forall\beta=(d,e,f)\in A\)</span>, <span class="math notranslate nohighlight">\(X(\beta)=d+e+f=10\)</span>.</p>
 <p>The actual computation and code to find <span class="math notranslate nohighlight">\(P(\{\omega\in\Omega|X(\omega)\in S\})\)</span> is rather straight-forward. We will count the number of dice rolls that sum to 10, and divide by the total number of outcomes (<span class="math notranslate nohighlight">\(6^3\)</span>)</p>
-<p>\pagebreak</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
@@ -556,7 +552,6 @@ A function <span class="math notranslate nohighlight">\(P\)</span> is a probabil
 <div class="section" id="continuing-our-die-example">
 <h3>Continuing our Die Example<a class="headerlink" href="#continuing-our-die-example" title="Permalink to this headline">¶</a></h3>
 <p>Continuing our work with rolling three die, let us construct the PMF and CDF for our discrete case.</p>
-<p>\pagebreak</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -601,7 +596,6 @@ A function <span class="math notranslate nohighlight">\(P\)</span> is a probabil
 </div>
 </div>
 </div>
-<p>\pagebreak</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -621,7 +615,6 @@ A function <span class="math notranslate nohighlight">\(P\)</span> is a probabil
 <img alt="_images/Probability_Basics_II_45_1.png" src="_images/Probability_Basics_II_45_1.png" />
 </div>
 </div>
-<p>\pagebreak</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
