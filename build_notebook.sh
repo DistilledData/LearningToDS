@@ -1,11 +1,11 @@
 #!/bin/bash -ex
 
 book_dir=learningtods
-
+mkdir ${book_dir} || true
 #copy configuration files
 for file in _toc.yml _config.yml about.md requirements.txt
 do
-    rm ${book_dir}/$file
+    rm ${book_dir}/$file || true
     cp $file ${book_dir}/$file
 done
 
@@ -30,4 +30,4 @@ done
 popd
 
 #publish code to github pages
-#ghp-import -n -p -f ${book_dir}/_build/html
+ghp-import -n -p -f ${book_dir}/_build/html
