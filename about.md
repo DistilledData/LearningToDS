@@ -29,4 +29,8 @@ These are common models and techniques that are used in the wild for supervised 
 1. [Classification Basics](http://distilleddata.me/LearningToDS/Classification_Basics.html)
 
 
-## Features of this Notebook
+## Features of this Book
+Powered by [Jupyter Book](https://jupyterbook.org/intro.html), this book allows interaction with the code in the webpages linked above. There are several different ways to interact with the code:
+1. [Binder](https://mybinder.org/)
+2. [Google co-lab](https://colab.research.google.com/notebooks/intro.ipynb)
+3. [Running the code live via Thebe](https://github.com/oreillymedia/thebe)
