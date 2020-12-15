@@ -184,6 +184,22 @@
 
         <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/distilleddata/LearningToDS"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/distilleddata/LearningToDS/issues/new?title=Issue%20on%20page%20%2FCommon_Probability_Distributions_Discrete.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -1328,6 +1344,25 @@ f_Y(k)&amp;=P(Y=k)=\sum_{j=0}^kP(X_1 = j &amp; X_2 = k-j)=\sum_{j=0}^kP(X_1=j)P(
 <p>Given distribution <span class="math notranslate nohighlight">\(X\sim\text{Geo}(p)\)</span>, <span class="math notranslate nohighlight">\(\mathbb{E}[X]=\frac{1}{p}\)</span></p>
 <div class="section" id="id33">
 <h4>Proof<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h4>
+<p><strong>Lemma: <span class="math notranslate nohighlight">\(\sum\limits_{i=1}^\infty k\cdot (1-p)^{k-1}=\sum\limits_{k=1}^\infty\sum\limits_{i=k}^\infty (1-p)^{i-1}\)</span></strong></p>
+<p>\begin{align}
+\sum\limits_{i=1}^\infty i\cdot (1-p)^{i-1}&amp;=\sum\limits_{i=1}^\infty i\cdot (1-p)^{i-1} \
+&amp;=\sum\limits_{i=1}^\infty (1-p)^{i-1}+\sum\limits_{i=1}^\infty (i-1)\cdot (1-p)^{i-1}=\sum\limits_{i=1}^\infty (1-p)^{i-1}+\sum\limits_{i=2}^\infty (i-1)\cdot (1-p)^{i-1} \
+&amp;=\sum\limits_{i=1}^\infty (1-p)^{i-1}+\sum\limits_{i=2}^\infty (1-p)^{i-1}+\sum\limits_{i=2}^\infty (i-2)\cdot (1-p)^{i-1} \
+&amp;=\sum\limits_{i=1}^\infty (1-p)^{i-1}+\sum\limits_{i=2}^\infty (1-p)^{i-1}+\sum\limits_{i=3}^\infty (i-2)\cdot (1-p)^{i-1} \
+&amp;=\sum\limits_{i=1}^\infty (1-p)^{i-1}+\sum\limits_{i=2}^\infty (1-p)^{i-1}+\dots+\sum\limits_{i=k+1}^\infty (i-k)\cdot (1-p)^{i-1} \
+\end{align}</p>
+<p>If we let <span class="math notranslate nohighlight">\(k\to\infty\)</span>, we obtain</p>
+<p>\begin{align}
+\sum\limits_{i=1}^\infty (1-p)^{i-1}+\sum\limits_{i=2}^\infty (1-p)^{i-1}+\dots+\sum\limits_{i=k+1}^\infty (i-k)\cdot (1-p)^{i-1} &amp;=\sum\limits_{i=1}^\infty (1-p)^{i-1}+\sum\limits_{i=2}^\infty (1-p)^{i-1}+\sum\limits_{i=3}^\infty (1-p)^{i-1}+\sum\limits_{i=4}^\infty (1-p)^{i-1}+\dots \
+&amp;=\sum\limits_{k=1}^\infty\sum\limits_{i=k}^\infty(1-p)^{i-1}
+\end{align}</p>
+<p><strong>Claim: Given distribution <span class="math notranslate nohighlight">\(X\sim\text{Geo}(p)\)</span>, <span class="math notranslate nohighlight">\(\mathbb{E}[X]=\frac{1}{p}\)</span></strong></p>
+<p>\begin{align}
+\sum\limits_{i=1}^\infty i\cdot (1-p)^{i-1}&amp;=\sum\limits_{i=1}^\infty i\cdot (1-p)^{i-1}p=p\sum\limits_{i=1}^\infty i\cdot (1-p)^{i-1} \
+&amp;=p\sum\limits_{k=1}^\infty\sum\limits_{i=k}^\infty(1-p)^{i-1}=p\sum\limits_{k=1}^\infty\frac{(1-p)^{k-1}}{1-(1-p)} \
+&amp;=p\sum\limits_{k=1}^\infty\frac{(1-p)^{k-1}}{p}=\sum\limits_{k=1}^\infty(1-p)^{k-1}=\frac{1}{1-(1-p)}=\frac{1}{p}
+\end{align}</p>
 </div>
 </div>
 <div class="section" id="id34">
