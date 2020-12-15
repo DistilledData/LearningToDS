@@ -2,11 +2,13 @@
 
 book_dir=learningtods
 mkdir ${book_dir} || true
+
+config_dir=config
 #copy configuration files
-for file in _toc.yml _config.yml about.md requirements.txt
+for file in _toc.yml _config.yml about.md
 do
     rm ${book_dir}/$file || true
-    cp $file ${book_dir}/$file
+    cp ${config_dir}/$file ${book_dir}/$file
 done
 
 #copy notebook files
